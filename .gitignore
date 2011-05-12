@@ -45,4 +45,7 @@ pkg
 #.redcar
 
 # For rubinius:
-#*.rbc
+#*.rbc 
+
+# For RVM
+.rvmrc
