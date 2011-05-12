@@ -17,8 +17,8 @@ Jeweler::Tasks.new do |gem|
   gem.name = "zohoho"
   gem.homepage = "http://github.com/kwhite/zohoho"
   gem.license = "MIT"
-  gem.summary = %Q{TODO: one-line summary of your gem}
-  gem.description = %Q{TODO: longer description of your gem}
+  gem.summary = %Q{Simple interface to zoho api}
+  gem.description = %Q{Simple interface to zoho api}
   gem.email = "jkentonwhite@gmail.com"
   gem.authors = ["KentonWhite"]
   # dependencies defined in Gemfile
