@@ -1,3 +1,3 @@
 def hello
-  p "hello world"
+  p "hello world from zohoho"
 end
