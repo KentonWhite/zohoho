@@ -5,8 +5,8 @@ module Zohoho
   class Connection
     include HTTParty
     
-    def initialize(service_name, username, password, apikey, zoho_uri = 'https://crm.zoho.com/crm/private/json')
-      @service_name, @username, @password, @apikey, @zoho_uri = service_name, username, password, apikey, zoho_uri
+    def initialize(service_name, username, password, apikey)
+      @service_name, @username, @password, @apikey = service_name, username, password, apikey
     end 
     
     def ticket_url
@@ -18,7 +18,7 @@ module Zohoho
     end 
     
     def zoho_uri
-      @zoho_uri
+      zoho_uri = "https://#{@service_name.downcase}.zoho.com/#{@service_name.downcase}/private/json"
     end
     
     def ticket
