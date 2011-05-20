@@ -1,0 +1,62 @@
+--- 
+- !ruby/struct:VCR::HTTPInteraction 
+  request: !ruby/struct:VCR::Request 
+    method: :post
+    uri: https://accounts.zoho.com:443/login?servicename=ZohoCRM&FROM_AGENT=true&LOGIN_ID=kentonwhite&PASSWORD=mopa3lwb
+    body: 
+    headers: 
+  response: !ruby/struct:VCR::Response 
+    status: !ruby/struct:VCR::ResponseStatus 
+      code: 200
+      message: OK
+    headers: 
+      set-cookie: 
+      - iamcsr=d6a9b521-243e-44c7-a074-ce8a70318c73; Path=/
+      - JSESSIONID=9318133BF702B481FE84388BA6E4AA66; Path=/; Secure
+      content-type: 
+      - text/html;charset=UTF-8
+      date: 
+      - Fri, 20 May 2011 15:40:52 GMT
+      server: 
+      - ZWS
+    body: |
+      #
+      #Fri May 20 08:40:53 PDT 2011
+      GETUSERNAME=null
+      WARNING=null
+      PASS_EXPIRY=-1
+      TICKET=89433f747b864d4013ee6ba6cc9eda79
+      RESULT=TRUE
+
+    http_version: "1.1"
+- !ruby/struct:VCR::HTTPInteraction 
+  request: !ruby/struct:VCR::Request 
+    method: :get
+    uri: https://crm.zoho.com:443/crm/private/json/Contacts/getRecords?apikey=&ticket=89433f747b864d4013ee6ba6cc9eda79
+    body: 
+    headers: 
+  response: !ruby/struct:VCR::Response 
+    status: !ruby/struct:VCR::ResponseStatus 
+      code: 200
+      message: OK
+    headers: 
+      set-cookie: 
+      - crmcsr=52a18e42-2fbf-40e6-80d8-cc2ea85d60d7; Path=/
+      pragma: 
+      - no-cache
+      cache-control: 
+      - no-cache
+      expires: 
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      content-type: 
+      - text/plain;charset=utf-8
+      content-length: 
+      - "3295"
+      date: 
+      - Fri, 20 May 2011 15:44:55 GMT
+      server: 
+      - "-"
+    body: |
+      {"response":{"result":{"Contacts":{"row":[{"no":"1","FL":[{"content":"384023000000051007","val":"CONTACTID"},{"content":"384023000000042003","val":"SMOWNERID"},{"content":"kentonwhite","val":"Contact Owner"},{"content":"Girih","val":"Last Name"},{"content":"384023000000042003","val":"SMCREATORID"},{"content":"kentonwhite","val":"Created By"},{"content":"384023000000042003","val":"MODIFIEDBY"},{"content":"kentonwhite","val":"Modified By"},{"content":"2011-05-12 14:25:21","val":"Created Time"},{"content":"2011-05-12 14:25:21","val":"Modified Time"},{"content":"false","val":"Email Opt Out"},{"content":"false","val":"Add to QuickBooks"}]},{"no":"2","FL":[{"content":"384023000000051005","val":"CONTACTID"},{"content":"384023000000042003","val":"SMOWNERID"},{"content":"kentonwhite","val":"Contact Owner"},{"content":"George","val":"First Name"},{"content":"Clooney","val":"Last Name"},{"content":"384023000000042003","val":"SMCREATORID"},{"content":"kentonwhite","val":"Created By"},{"content":"384023000000042003","val":"MODIFIEDBY"},{"content":"kentonwhite","val":"Modified By"},{"content":"2011-05-12 14:03:44","val":"Created Time"},{"content":"2011-05-12 14:03:44","val":"Modified Time"},{"content":"false","val":"Email Opt Out"},{"content":"false","val":"Add to QuickBooks"}]},{"no":"3","FL":[{"content":"384023000000048001","val":"CONTACTID"},{"content":"384023000000042003","val":"SMOWNERID"},{"content":"kentonwhite","val":"Contact Owner"},{"content":"Vivek","val":"First Name"},{"content":"Sarin","val":"Last Name"},{"content":"384023000000042003","val":"SMCREATORID"},{"content":"kentonwhite","val":"Created By"},{"content":"384023000000042003","val":"MODIFIEDBY"},{"content":"kentonwhite","val":"Modified By"},{"content":"2011-05-11 20:53:07","val":"Created Time"},{"content":"2011-05-11 20:53:07","val":"Modified Time"},{"content":"false","val":"Email Opt Out"},{"content":"false","val":"Add to QuickBooks"}]},{"no":"4","FL":[{"content":"384023000000047003","val":"CONTACTID"},{"content":"384023000000042003","val":"SMOWNERID"},{"content":"kentonwhite","val":"Contact Owner"},{"content":"John","val":"First Name"},{"content":"White","val":"Last Name"},{"content":"384023000000042003","val":"SMCREATORID"},{"content":"kentonwhite","val":"Created By"},{"content":"384023000000042003","val":"MODIFIEDBY"},{"content":"kentonwhite","val":"Modified By"},{"content":"2011-05-11 13:48:39","val":"Created Time"},{"content":"2011-05-11 13:48:39","val":"Modified Time"},{"content":"false","val":"Email Opt Out"},{"content":"false","val":"Add to QuickBooks"}]},{"no":"5","FL":[{"content":"384023000000045001","val":"CONTACTID"},{"content":"384023000000042003","val":"SMOWNERID"},{"content":"kentonwhite","val":"Contact Owner"},{"content":"Kenton","val":"First Name"},{"content":"White","val":"Last Name"},{"content":"384023000000042003","val":"SMCREATORID"},{"content":"kentonwhite","val":"Created By"},{"content":"384023000000042003","val":"MODIFIEDBY"},{"content":"kentonwhite","val":"Modified By"},{"content":"2011-05-10 20:22:25","val":"Created Time"},{"content":"2011-05-10 20:22:25","val":"Modified Time"},{"content":"false","val":"Email Opt Out"},{"content":"Dr.","val":"Salutation"},{"content":"false","val":"Add to QuickBooks"}]}]}},"uri":"/crm/private/json/Contacts/getRecords"}}
+
+    http_version: "1.1"
