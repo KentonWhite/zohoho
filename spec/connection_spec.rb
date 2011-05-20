@@ -27,5 +27,4 @@ describe "Zohoho::Connection" do
     end
     @result.size.should == 5
   end
-  
 end
