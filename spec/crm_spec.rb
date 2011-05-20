@@ -30,4 +30,11 @@ describe "Zohoho::CRM" do
     end
     @contact.should == "384023000000055001"        
   end
+  
+  it 'should add a note to Johnny Depp' do
+    VCR.use_cassette('note', :record => :new_episodes) do
+      @note = @crm.post_note "384023000000055001", "Note to self", "Don't do that again" 
+    end
+    @note.should == "384023000000056001"    
+  end
 end

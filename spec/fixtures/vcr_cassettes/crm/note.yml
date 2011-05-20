@@ -1,0 +1,62 @@
+--- 
+- !ruby/struct:VCR::HTTPInteraction 
+  request: !ruby/struct:VCR::Request 
+    method: :post
+    uri: https://accounts.zoho.com:443/login?servicename=ZohoCRM&FROM_AGENT=true&LOGIN_ID=kentonwhite&PASSWORD=mopa3lwb
+    body: 
+    headers: 
+  response: !ruby/struct:VCR::Response 
+    status: !ruby/struct:VCR::ResponseStatus 
+      code: 200
+      message: OK
+    headers: 
+      set-cookie: 
+      - iamcsr=97b34f21-a554-46d2-85a7-5def95ec1381; Path=/
+      - JSESSIONID=FC1334AAF90EFEBBD13F87ECA1BC965F; Path=/; Secure
+      content-type: 
+      - text/html;charset=UTF-8
+      date: 
+      - Fri, 20 May 2011 17:37:41 GMT
+      server: 
+      - ZWS
+    body: |
+      #
+      #Fri May 20 10:37:41 PDT 2011
+      GETUSERNAME=null
+      WARNING=null
+      PASS_EXPIRY=-1
+      TICKET=d09b47a40943b2dd6d92704f61507e0f
+      RESULT=TRUE
+
+    http_version: "1.1"
+- !ruby/struct:VCR::HTTPInteraction 
+  request: !ruby/struct:VCR::Request 
+    method: :post
+    uri: https://crm.zoho.com:443/crm/private/json/Notes/insertRecords
+    body: xmlData=%3CNotes%3E%0A%20%20%3Crow%20no%3D%221%22%3E%0A%20%20%20%20%3CFL%20val%3D%22entityId%22%3E384023000000055001%3C%2FFL%3E%0A%20%20%20%20%3CFL%20val%3D%22Note%20Title%22%3ENote%20to%20self%3C%2FFL%3E%0A%20%20%20%20%3CFL%20val%3D%22Note%20Content%22%3EDon%26apos%3Bt%20do%20that%20again%3C%2FFL%3E%0A%20%20%3C%2Frow%3E%0A%3C%2FNotes%3E%0A&newFormat=1&apikey=&ticket=d09b47a40943b2dd6d92704f61507e0f
+    headers: 
+  response: !ruby/struct:VCR::Response 
+    status: !ruby/struct:VCR::ResponseStatus 
+      code: 200
+      message: OK
+    headers: 
+      set-cookie: 
+      - crmcsr=79cbb578-a277-48c6-bb4c-d241f089fc4d; Path=/
+      pragma: 
+      - no-cache
+      cache-control: 
+      - no-cache
+      expires: 
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      content-type: 
+      - text/plain;charset=utf-8
+      content-length: 
+      - "384"
+      date: 
+      - Fri, 20 May 2011 17:37:42 GMT
+      server: 
+      - "-"
+    body: |
+      {"response":{"result":{"message":"Record(s) added successfully","recorddetail":{"FL":[{"content":"384023000000056001","val":"Id"},{"content":"2011-05-20 17:37:42","val":"Created Time"},{"content":"2011-05-20 17:37:42","val":"Modified Time"},{"content":"kentonwhite","val":"Created By"},{"content":"kentonwhite","val":"Modified By"}]}},"uri":"/crm/private/json/Notes/insertRecords"}}
+
+    http_version: "1.1"

@@ -23,6 +23,12 @@ module Zohoho
      record = @conn.call('Contacts', 'insertRecords', {:xmlData => xmlData, :newFormat => 1}, :post)
      record['Id']    
     end
+
+    def post_note(entity_id, note_title, note_content)
+      xmlData = parse_data({'entityId' => entity_id, 'Note Title' => note_title, 'Note Content' => note_content}, 'Notes')
+      record = @conn.call('Notes', 'insertRecords', {:xmlData => xmlData, :newFormat => 1}, :post) 
+      record['Id']
+    end
     
     private 
     
