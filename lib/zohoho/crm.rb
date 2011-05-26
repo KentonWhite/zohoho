@@ -10,6 +10,10 @@ module Zohoho
       @conn = Zohoho::Connection.new 'CRM', username, password, apikey
     end
     
+    def auth_url
+      @conn.ticket_url
+    end
+    
     def contact(name)
       first_name, last_name = parse_name(name)
       contacts = find_contacts_by_last_name(last_name)
