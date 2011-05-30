@@ -17,6 +17,13 @@ describe "Zohoho::CRM" do
     @contact["CONTACTID"].should == "384023000000045001"
   end 
   
+  it 'should get single name contact Girih' do
+    VCR.use_cassette('contact_single', :record => :new_episodes) do
+      @contact = @crm.contact "Girih"
+    end
+    @contact["CONTACTID"].should == "384023000000051007"    
+  end
+  
   it 'should return nil for Johnny Depp' do
     VCR.use_cassette('contact', :record => :new_episodes) do
       @contact = @crm.contact "Johnny Depp"
