@@ -26,8 +26,8 @@ module Zohoho
 
     def add_contact(name)
       first_name, last_name = parse_name(name)
-      xmlData = parse_data({'First Name' => first_name, 'Last Name' => last_name}, 'Contacts')
-     record = @conn.call('Contacts', 'insertRecords', {:xmlData => xmlData, :newFormat => 1}, :post)
+      xmlData = parse_data({'First Name' => first_name, 'Last Name' => last_name}, 'Contacts')  
+     record = @conn.call('Contacts', 'insertRecords', {:xmlData => xmlData, :newFormat => 1}, :post) 
      record['Id']    
     end
 
