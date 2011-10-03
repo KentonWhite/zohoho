@@ -36,6 +36,11 @@ module Zohoho
       record = @conn.call('Notes', 'insertRecords', {:xmlData => xmlData, :newFormat => 1}, :post) 
       record['Id']
     end
+
+    def sales_orders(last_modified = nil)
+      query = last_modified ? {} : { :lastModifiedTime => last_modified.iso8601 }              
+      @conn.call('SalesOrders', 'getRecords', query)
+    end
     
     private 
     

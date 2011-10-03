@@ -10,21 +10,30 @@ module Zohoho
     end 
     
     def ticket_url
-      "https://accounts.zoho.com/login?servicename=Zoho#{@service_name}&FROM_AGENT=true&LOGIN_ID=#{@username}&PASSWORD=#{@password}"
+      "https://accounts.zoho.com/login"
+    end 
+
+    {"servicename"=>"ZohoCRM", "FROM_AGENT"=>true, "LOGIN_ID"=>["aisha.fenton", "epson123", "wcRImoTaNxWDAgM-LlfsbhRqsC8Zcu03kQaMGWeIdlI$"], "PASSWORD"=>"epson123"}
+    def ticket_parameters
+      { 
+        "servicename" => ("Zoho" + @service_name),
+        "FROM_AGENT" => true,
+        "LOGIN_ID" => @username,
+        "PASSWORD" => @password,
+      }
     end 
     
     def api_key
       @api_key
-    end 
+    end
     
     def zoho_uri
       zoho_uri = "https://#{@service_name.downcase}.zoho.com/#{@service_name.downcase}/private/json"
     end
     
     def ticket
-      return @ticket if @ticket
-      url = ticket_url 
-      ticket_info = self.class.post(url).parsed_response 
+      return @ticket if @ticket       
+      ticket_info = self.class.post(ticket_url, { :body => ticket_parameters }).parsed_response 
       ticket_info.match(/\sTICKET=(.*)\s/)[1]
     end 
     
