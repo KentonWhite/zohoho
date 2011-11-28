@@ -2,6 +2,7 @@ module Zohoho
   require 'httparty'
   require 'json'
   require 'xmlsimple'
+  require 'date'
   
   class Crm
     include HTTParty
@@ -22,13 +23,13 @@ module Zohoho
         first_name.match(c['First Name'])
       } 
       contacts.first
-    end 
+    end
 
     def add_contact(name)
       first_name, last_name = parse_name(name)
       xmlData = parse_data({'First Name' => first_name, 'Last Name' => last_name}, 'Contacts')  
-     record = @conn.call('Contacts', 'insertRecords', {:xmlData => xmlData, :newFormat => 1}, :post) 
-     record['Id']    
+      record = @conn.call('Contacts', 'insertRecords', {:xmlData => xmlData, :newFormat => 1}, :post) 
+      record['Id']    
     end
 
     def post_note(entity_id, note_title, note_content)
@@ -37,9 +38,24 @@ module Zohoho
       record['Id']
     end
 
+    def sales_order(id)
+      @conn.call('SalesOrders', 'getRecordById', :id => id).first
+    end
+
     def sales_orders(last_modified = nil)
-      query = last_modified ? {} : { :lastModifiedTime => last_modified.iso8601 }              
+      query = last_modified ? { :lastModifiedTime => last_modified.iso8601 } : {}
       @conn.call('SalesOrders', 'getRecords', query)
+    end
+
+    def tasks(last_modified = nil)
+      query = last_modified ? { :lastModifiedTime => last_modified.iso8601 } : {}
+      @conn.call('Tasks', 'getRecords', query)
+    end
+
+    def tasks_by_due_date(due_date)
+      date_str = due_date ? due_date.strftime('%Y-%m-%d') : ""
+      query = "(Due Date|is|#{date_str})"
+      @conn.call('Tasks', 'getSearchRecords', :searchCondition => query, :selectColumns => 'All')
     end
     
     private 
@@ -63,7 +79,7 @@ module Zohoho
 
     def find_contacts_by_last_name(last_name)
       search_condition = "(Contact Name|ends with|#{last_name})"
-  @conn.call('Contacts', 'getSearchRecords', :searchCondition => search_condition, :selectColumns => 'All')
+      @conn.call('Contacts', 'getSearchRecords', :searchCondition => search_condition, :selectColumns => 'All')
     end
     
   end 

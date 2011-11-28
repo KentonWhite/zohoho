@@ -35,7 +35,7 @@ module Zohoho
       return @ticket if @ticket       
       ticket_info = self.class.post(ticket_url, { :body => ticket_parameters }).parsed_response 
       ticket_info.match(/\sTICKET=(.*)\s/)[1]
-    end 
+    end
     
     def call(entry, api_method, query = {}, http_method = :get)
       login = {
@@ -43,13 +43,15 @@ module Zohoho
         :ticket => ticket
       }    
       query.merge!(login)
-     url = [zoho_uri, entry, api_method].join('/')
-     case http_method
-      when :get       
+      url = [zoho_uri, entry, api_method].join('/')
+      case http_method
+      when :get
         raw = JSON.parse(self.class.get(url, :query => query).parsed_response)
+        pp "-------", raw
         parse_raw_get(raw, entry)    
       when :post
         raw = JSON.parse(self.class.post(url, :body => query).parsed_response)
+        pp "-------", raw
         parse_raw_post(raw)
       else
         raise "#{http_method} is not a recognized http method"
