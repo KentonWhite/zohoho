@@ -13,4 +13,7 @@ group :development do
   gem "bundler", "~> 1.0.0"
   gem "jeweler", "~> 1.6.0"
   gem "rcov", ">= 0"
+  gem "fakeweb", "~> 1.3.0"
+  gem "vcr", "~> 1.11.3"
+  gem "mocha", "~> 0.10.5"
 end
