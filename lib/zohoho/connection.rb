@@ -13,7 +13,6 @@ module Zohoho
       "https://accounts.zoho.com/login"
     end 
 
-    {"servicename"=>"ZohoCRM", "FROM_AGENT"=>true, "LOGIN_ID"=>["aisha.fenton", "epson123", "wcRImoTaNxWDAgM-LlfsbhRqsC8Zcu03kQaMGWeIdlI$"], "PASSWORD"=>"epson123"}
     def ticket_parameters
       { 
         "servicename" => ("Zoho" + @service_name),
