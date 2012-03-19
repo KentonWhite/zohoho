@@ -4,45 +4,22 @@ module Zohoho
   
   class Connection
     include HTTParty
-    
-    def initialize(service_name, username, password, apikey)
-      @service_name, @username, @password, @api_key = service_name, username, password, apikey
-    end 
-    
-    def ticket_url
-      "https://accounts.zoho.com/login"
-    end 
 
-    def ticket_parameters
-      { 
-        "servicename" => ("Zoho" + @service_name),
-        "FROM_AGENT" => true,
-        "LOGIN_ID" => @username,
-        "PASSWORD" => @password,
-      }
-    end 
+    attr_reader :auth_token
     
-    def api_key
-      @api_key
-    end
+    def initialize(service_name, auth_token)
+      @service_name, @auth_token = service_name, auth_token
+    end 
     
     def zoho_uri
       zoho_uri = "https://#{@service_name.downcase}.zoho.com/#{@service_name.downcase}/private/json"
     end
     
-    def ticket
-      return @ticket if @ticket       
-      ticket_info = self.class.post(ticket_url, { :body => ticket_parameters }).parsed_response 
-      ticket_info.match(/\sTICKET=(.*)\s/)[1]
-    end
-    
     def call(entry, api_method, query = {}, http_method = :get)
-      login = {
-        :apikey => api_key,
-        :ticket => ticket
-      }    
-      query.merge!(login)
+      query.merge!({ :authtoken => self.auth_token, :scope => "#{@service_name.downcase}api" })
+
       url = [zoho_uri, entry, api_method].join('/')
+      
       case http_method
       when :get
         raw = JSON.parse(self.class.get(url, :query => query).parsed_response)
