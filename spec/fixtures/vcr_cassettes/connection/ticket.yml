@@ -1,31 +1,83 @@
---- 
-- !ruby/struct:VCR::HTTPInteraction 
-  request: !ruby/struct:VCR::Request 
+---
+- !ruby/struct:VCR::HTTPInteraction
+  request: !ruby/struct:VCR::Request
     method: :post
     uri: https://accounts.zoho.com:443/login?servicename=ZohoCRM&FROM_AGENT=true&LOGIN_ID=kentonwhite&PASSWORD=mopa3lwb
-    body: 
-    headers: 
-  response: !ruby/struct:VCR::Response 
-    status: !ruby/struct:VCR::ResponseStatus 
+    body: !!null 
+    headers: !!null 
+  response: !ruby/struct:VCR::Response
+    status: !ruby/struct:VCR::ResponseStatus
       code: 200
       message: OK
-    headers: 
-      set-cookie: 
+    headers:
+      set-cookie:
       - iamcsr=7c8861a5-4f9e-4910-93d8-7351fbe53135; Path=/
       - JSESSIONID=92F8253FD02CDD40404BAD9B06510277; Path=/; Secure
-      content-type: 
+      content-type:
       - text/html;charset=UTF-8
-      date: 
+      date:
       - Fri, 20 May 2011 15:27:29 GMT
-      server: 
+      server:
       - ZWS
-    body: |
-      #
+    body: ! '#
+
       #Fri May 20 08:27:30 PDT 2011
+
       GETUSERNAME=null
+
       WARNING=null
+
       PASS_EXPIRY=-1
+
       TICKET=c1eea66055af5d42b8b1ab0d1171c9c4
+
       RESULT=TRUE
 
-    http_version: "1.1"
+'
+    http_version: '1.1'
+- !ruby/struct:VCR::HTTPInteraction
+  request: !ruby/struct:VCR::Request
+    method: :post
+    uri: https://accounts.zoho.com:443/login
+    body: servicename=ZohoCRM&FROM_AGENT=true&LOGIN_ID=kentonwhite&PASSWORD=mopa3lwb
+    headers: !!null 
+  response: !ruby/struct:VCR::Response
+    status: !ruby/struct:VCR::ResponseStatus
+      code: 200
+      message: OK
+    headers:
+      set-cookie:
+      - iamcsr=3c51f4ce-1567-49e8-ac92-ee8f38bd9699; Path=/
+      - JSESSIONID=29848C4A1AAB642625FB015AF60BEC92; Path=/
+      - IAMAGENTTICKET_securedomain=false; Domain=.zoho.com; Path=/
+      - IAMAGENTTICKET_secureonly=true; Domain=.zoho.com; Path=/
+      - acctsze=0; Path=/
+      p3p:
+      - CP="CAO PSA OUR"
+      - CP="CAO PSA OUR"
+      content-type:
+      - text/html;charset=UTF-8
+      date:
+      - Mon, 19 Mar 2012 01:52:47 GMT
+      server:
+      - ZWS
+      transfer-encoding:
+      - chunked
+      strict-transport-security:
+      - max-age=604800
+    body: ! '#
+
+      #Sun Mar 18 18:52:48 PDT 2012
+
+      GETUSERNAME=null
+
+      WARNING=null
+
+      PASS_EXPIRY=-1
+
+      TICKET=69617ea2200f689765ac4e1b44233128
+
+      RESULT=TRUE
+
+'
+    http_version: '1.1'
