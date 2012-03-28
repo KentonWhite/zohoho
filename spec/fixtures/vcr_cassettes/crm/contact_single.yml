@@ -1,67 +1,163 @@
---- 
-- !ruby/struct:VCR::HTTPInteraction 
-  request: !ruby/struct:VCR::Request 
+---
+- !ruby/struct:VCR::HTTPInteraction
+  request: !ruby/struct:VCR::Request
     method: :post
     uri: https://accounts.zoho.com:443/login?servicename=ZohoCRM&FROM_AGENT=true&LOGIN_ID=kentonwhite&PASSWORD=mopa3lwb
-    body: 
-    headers: 
-  response: !ruby/struct:VCR::Response 
-    status: !ruby/struct:VCR::ResponseStatus 
+    body: !!null 
+    headers: !!null 
+  response: !ruby/struct:VCR::Response
+    status: !ruby/struct:VCR::ResponseStatus
       code: 200
       message: OK
-    headers: 
-      set-cookie: 
+    headers:
+      set-cookie:
       - iamcsr=f6bfcdd7-4f26-4899-be82-259a5020d354; Path=/
       - JSESSIONID=33787A41B458810E47C49FD3785CEA7A; Path=/; Secure
-      content-type: 
+      content-type:
       - text/html;charset=UTF-8
-      date: 
+      date:
       - Mon, 30 May 2011 17:42:50 GMT
-      server: 
+      server:
       - ZWS
-    body: |
-      #
+    body: ! '#
+
       #Mon May 30 10:42:51 PDT 2011
+
       GETUSERNAME=null
+
       WARNING=null
+
       PASS_EXPIRY=-1
+
       TICKET=5b9662f2172dddd4aeac1cff9da080d5
+
       RESULT=TRUE
 
-    http_version: "1.1"
-- !ruby/struct:VCR::HTTPInteraction 
-  request: !ruby/struct:VCR::Request 
+'
+    http_version: '1.1'
+- !ruby/struct:VCR::HTTPInteraction
+  request: !ruby/struct:VCR::Request
     method: :get
     uri: https://crm.zoho.com:443/crm/private/json/Contacts/getSearchRecords?searchCondition=(Contact%20Name%7Cends%20with%7CGirih)&selectColumns=All&apikey=&ticket=5b9662f2172dddd4aeac1cff9da080d5
-    body: 
-    headers: 
-  response: !ruby/struct:VCR::Response 
-    status: !ruby/struct:VCR::ResponseStatus 
+    body: !!null 
+    headers: !!null 
+  response: !ruby/struct:VCR::Response
+    status: !ruby/struct:VCR::ResponseStatus
       code: 200
       message: OK
-    headers: 
-      set-cookie: 
+    headers:
+      set-cookie:
       - crmcsr=a7ee6fc0-eee2-4931-a78a-da1ffce80d55; Path=/
       - crmze=6; Path=/
-      pragma: 
+      pragma:
       - no-cache
-      cache-control: 
+      cache-control:
       - no-cache
-      expires: 
+      expires:
       - Thu, 01 Jan 1970 00:00:00 GMT
-      content-type: 
+      content-type:
       - text/plain;charset=utf-8
-      content-length: 
-      - "699"
-      date: 
+      content-length:
+      - '699'
+      date:
       - Mon, 30 May 2011 17:42:51 GMT
-      server: 
-      - "-"
-      p3p: 
+      server:
+      - ! '-'
+      p3p:
       - CP="CAO PSA OUR"
-      strict-transport-security: 
+      strict-transport-security:
       - max-age=604800
-    body: |
-      {"response":{"result":{"Contacts":{"row":{"no":"1","FL":[{"content":"384023000000051007","val":"CONTACTID"},{"content":"384023000000042003","val":"SMOWNERID"},{"content":"kentonwhite","val":"Contact Owner"},{"content":"Girih","val":"Last Name"},{"content":"384023000000042003","val":"SMCREATORID"},{"content":"kentonwhite","val":"Created By"},{"content":"384023000000042003","val":"MODIFIEDBY"},{"content":"kentonwhite","val":"Modified By"},{"content":"2011-05-12 14:25:21","val":"Created Time"},{"content":"2011-05-12 14:25:21","val":"Modified Time"},{"content":"false","val":"Email Opt Out"},{"content":"false","val":"Add to QuickBooks"}]}}},"uri":"/crm/private/json/Contacts/getSearchRecords"}}
+    body: ! '{"response":{"result":{"Contacts":{"row":{"no":"1","FL":[{"content":"384023000000051007","val":"CONTACTID"},{"content":"384023000000042003","val":"SMOWNERID"},{"content":"kentonwhite","val":"Contact
+      Owner"},{"content":"Girih","val":"Last Name"},{"content":"384023000000042003","val":"SMCREATORID"},{"content":"kentonwhite","val":"Created
+      By"},{"content":"384023000000042003","val":"MODIFIEDBY"},{"content":"kentonwhite","val":"Modified
+      By"},{"content":"2011-05-12 14:25:21","val":"Created Time"},{"content":"2011-05-12
+      14:25:21","val":"Modified Time"},{"content":"false","val":"Email Opt Out"},{"content":"false","val":"Add
+      to QuickBooks"}]}}},"uri":"/crm/private/json/Contacts/getSearchRecords"}}
 
-    http_version: "1.1"
+'
+    http_version: '1.1'
+- !ruby/struct:VCR::HTTPInteraction
+  request: !ruby/struct:VCR::Request
+    method: :post
+    uri: https://accounts.zoho.com:443/login
+    body: servicename=ZohoCRM&FROM_AGENT=true&LOGIN_ID=kentonwhite&PASSWORD=mopa3lwb
+    headers: !!null 
+  response: !ruby/struct:VCR::Response
+    status: !ruby/struct:VCR::ResponseStatus
+      code: 200
+      message: OK
+    headers:
+      set-cookie:
+      - iamcsr=9faa6611-3bf1-4d8f-9066-40b18ce2b58a; Path=/
+      - JSESSIONID=DFD591621C2CC6795A3E607F02424837; Path=/
+      - IAMAGENTTICKET_securedomain=false; Domain=.zoho.com; Path=/
+      - IAMAGENTTICKET_secureonly=true; Domain=.zoho.com; Path=/
+      - acctsze=0; Path=/
+      p3p:
+      - CP="CAO PSA OUR"
+      - CP="CAO PSA OUR"
+      content-type:
+      - text/html;charset=UTF-8
+      date:
+      - Mon, 19 Mar 2012 01:52:57 GMT
+      server:
+      - ZWS
+      transfer-encoding:
+      - chunked
+      strict-transport-security:
+      - max-age=604800
+    body: ! '#
+
+      #Sun Mar 18 18:52:58 PDT 2012
+
+      GETUSERNAME=null
+
+      WARNING=null
+
+      PASS_EXPIRY=-1
+
+      TICKET=20233d23cb7ab83dfda9a5c11aab3416
+
+      RESULT=TRUE
+
+'
+    http_version: '1.1'
+- !ruby/struct:VCR::HTTPInteraction
+  request: !ruby/struct:VCR::Request
+    method: :get
+    uri: https://crm.zoho.com:443/crm/private/json/Contacts/getSearchRecords?searchCondition=(Contact%20Name%7Cends%20with%7CGirih)&selectColumns=All&apikey=L-PvsrDNn9EIW2phA3vzp9YuL5REECogkQaMGWeIdlI%24&ticket=20233d23cb7ab83dfda9a5c11aab3416
+    body: !!null 
+    headers: !!null 
+  response: !ruby/struct:VCR::Response
+    status: !ruby/struct:VCR::ResponseStatus
+      code: 200
+      message: OK
+    headers:
+      set-cookie:
+      - crmcsr=1854b4eb-1388-4479-ac6c-001d884017b5; Path=/
+      - crmzoze=3; Path=/
+      pragma:
+      - no-cache
+      cache-control:
+      - no-cache
+      expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      content-type:
+      - text/plain;charset=utf-8
+      content-length:
+      - '699'
+      date:
+      - Mon, 19 Mar 2012 01:52:59 GMT
+      server:
+      - ZGS
+      p3p:
+      - CP="CAO PSA OUR"
+      strict-transport-security:
+      - max-age=604800
+    body: ! "{\"response\":{\"result\":{\"Contacts\":{\"row\":{\"no\":\"1\",\"FL\":[{\"content\":\"384023000000051007\",\"val\":\"CONTACTID\"},{\"content\":\"384023000000042003\",\"val\":\"SMOWNERID\"},{\"content\":\"kentonwhite\",\"val\":\"Contact
+      Owner\"},{\"content\":\"Girih\",\"val\":\"Last Name\"},{\"content\":\"384023000000042003\",\"val\":\"SMCREATORID\"},{\"content\":\"kentonwhite\",\"val\":\"Created
+      By\"},{\"content\":\"384023000000042003\",\"val\":\"MODIFIEDBY\"},{\"content\":\"kentonwhite\",\"val\":\"Modified
+      By\"},{\"content\":\"2011-05-12 14:25:21\",\"val\":\"Created Time\"},{\"content\":\"2011-05-12
+      14:25:21\",\"val\":\"Modified Time\"},{\"content\":\"false\",\"val\":\"Email
+      Opt Out\"},{\"content\":\"false\",\"val\":\"Add to QuickBooks\"}]}}},\"uri\":\"/crm/private/json/Contacts/getSearchRecords\"}}\r\n"
+    http_version: '1.1'
