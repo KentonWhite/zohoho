@@ -54,6 +54,10 @@ module Zohoho
       @conn.call('Tasks', 'getSearchRecords', :searchCondition => query, :selectColumns => 'All')
     end
     
+    def call(*params)
+      @conn.call(*params)
+    end
+    
     private 
     
     def parse_name(name)
