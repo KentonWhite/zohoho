@@ -4,16 +4,14 @@ module Zohoho
   require 'xmlsimple'
   require 'date'
   require 'open-uri'
-  require 'nokogiri'
   
   class Crm
     include HTTParty
     
     def initialize(username, password, apikey)
       url = "https://accounts.zoho.com/apiauthtoken/nb/create?SCOPE=ZohoCRM/crmapi&EMAIL_ID=#{username}&PASSWORD=#{password}"
-      result = Nokogiri::HTML(open(url)).css("p").inner_text
+      result = open(url).string
       auth_token = result.match(/AUTHTOKEN=(.*)\nRESULT/m)[1].strip
-
       @conn = Zohoho::Connection.new 'CRM', auth_token
     end
     
