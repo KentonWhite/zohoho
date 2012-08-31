@@ -1,6 +1,8 @@
 = zohoho
 
-Description goes here.
+== Usage
+  @crm = Zohoho::Crm.new('username', 'password', 'apikey') 
+  record = @crm.add_contact "Stephen Colbert"
 
 == Contributing to zohoho
  
