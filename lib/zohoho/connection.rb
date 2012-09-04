@@ -4,47 +4,32 @@ module Zohoho
   
   class Connection
     include HTTParty
+
+    attr_reader :auth_token
     
-    def initialize(service_name, username, password, apikey)
-      @service_name, @username, @password, @api_key = service_name, username, password, apikey
-    end 
-    
-    def ticket_url
-      "https://accounts.zoho.com/login?servicename=Zoho#{@service_name}&FROM_AGENT=true&LOGIN_ID=#{@username}&PASSWORD=#{@password}"
-    end 
-    
-    def api_key
-      @api_key
+    def initialize(service_name, auth_token)
+      @service_name, @auth_token = service_name, auth_token
     end 
     
     def zoho_uri
       zoho_uri = "https://#{@service_name.downcase}.zoho.com/#{@service_name.downcase}/private/json"
     end
     
-    def ticket
-      return @ticket if @ticket
-      url = ticket_url 
-      ticket_info = self.class.post(url).parsed_response 
-      ticket_info.match(/\sTICKET=(.*)\s/)[1]
-    end 
-    
     def call(entry, api_method, query = {}, http_method = :get)
-      login = {
-        :apikey => api_key,
-        :ticket => ticket
-      }    
-      query.merge!(login)
-     url = [zoho_uri, entry, api_method].join('/')
-     case http_method
-      when :get       
-        raw = JSON.parse(self.class.get(url, :query => query).parsed_response)
+      query.merge!({ :authtoken => self.auth_token, :scope => "#{@service_name.downcase}api" })
+
+      url = [zoho_uri, entry, api_method].join('/')
+      
+      case http_method
+      when :get
+        raw = JSON.parse(self.class.get(url, :query => query))
         parse_raw_get(raw, entry)    
       when :post
-        raw = JSON.parse(self.class.post(url, :body => query).parsed_response)
+        raw = JSON.parse(self.class.post(url, :body => query))
         parse_raw_post(raw)
       else
         raise "#{http_method} is not a recognized http method"
-      end      
+      end
     end 
     
     private
