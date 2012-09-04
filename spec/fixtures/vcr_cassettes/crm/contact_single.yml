@@ -2,7 +2,7 @@
 - !ruby/struct:VCR::HTTPInteraction 
   request: !ruby/struct:VCR::Request 
     method: :post
-    uri: https://accounts.zoho.com:443/login?servicename=ZohoCRM&FROM_AGENT=true&LOGIN_ID=kentonwhite&PASSWORD=mopa3lwb
+    uri: https://accounts.zoho.com:443/login?servicename=ZohoCRM&FROM_AGENT=true&LOGIN_ID=kentonwhite&PASSWORD=test
     body: !!null 
       str: ""
       :@taguri: x-private:null
@@ -77,7 +77,7 @@
   request: !ruby/struct:VCR::Request 
     method: :post
     uri: https://accounts.zoho.com:443/login
-    body: servicename=ZohoCRM&FROM_AGENT=true&LOGIN_ID=kentonwhite&PASSWORD=mopa3lwb
+    body: servicename=ZohoCRM&FROM_AGENT=true&LOGIN_ID=kentonwhite&PASSWORD=test
     headers: !!null 
       str: ""
       :@taguri: x-private:null

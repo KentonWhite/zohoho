@@ -2,8 +2,8 @@
 - !ruby/struct:VCR::HTTPInteraction
   request: !ruby/struct:VCR::Request
     method: :post
-    uri: https://accounts.zoho.com:443/login?servicename=ZohoCRM&FROM_AGENT=true&LOGIN_ID=kentonwhite&PASSWORD=mopa3lwb
-    body: !!null 
+    uri: https://accounts.zoho.com:443/login?servicename=ZohoCRM&FROM_AGENT=true&LOGIN_ID=test&PASSWORD=test
+  test!!null 
     headers: !!null 
   response: !ruby/struct:VCR::Response
     status: !ruby/struct:VCR::ResponseStatus
@@ -39,8 +39,8 @@
   request: !ruby/struct:VCR::Request
     method: :post
     uri: https://accounts.zoho.com:443/login
-    body: servicename=ZohoCRM&FROM_AGENT=true&LOGIN_ID=kentonwhite&PASSWORD=mopa3lwb
-    headers: !!null 
+    body: servicename=ZohoCRM&FROM_AGENT=true&LOGIN_ID=test&PASSWORD=test
+  tests: !!null 
   response: !ruby/struct:VCR::Response
     status: !ruby/struct:VCR::ResponseStatus
       code: 200

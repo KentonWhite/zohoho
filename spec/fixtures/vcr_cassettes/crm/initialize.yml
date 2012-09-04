@@ -2,7 +2,7 @@
 - !ruby/struct:VCR::HTTPInteraction 
   request: !ruby/struct:VCR::Request 
     method: :get
-    uri: https://accounts.zoho.com:443/apiauthtoken/nb/create?SCOPE=ZohoCRM/crmapi&EMAIL_ID=kentonwhite&PASSWORD=mopa3lwb
+    uri: https://accounts.zoho.com:443/apiauthtoken/nb/create?SCOPE=ZohoCRM/crmapi&EMAIL_ID=test&PASSWORD=test
     body: 
     headers: 
   response: !ruby/struct:VCR::Response 
