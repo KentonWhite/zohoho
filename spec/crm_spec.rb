@@ -6,8 +6,10 @@ describe "Zohoho::CRM" do
     @username = 'kentonwhite'
     @password = 'mopa3lwb'
     @apikey = 'L-PvsrDNn9EIW2phA3vzp9YuL5REECogkQaMGWeIdlI$'
-    @crm = Zohoho::Crm.new(@username, @password, @apikey) 
     vcr_config 'crm'    
+    VCR.use_cassette('initialize', :record => :new_episodes) do
+      @crm = Zohoho::Crm.new(@username, @password, @apikey)       
+    end
   end 
   
   it 'should get contact Kenton White' do
@@ -23,14 +25,7 @@ describe "Zohoho::CRM" do
     end
     @contact["CONTACTID"].should == "384023000000051007"    
   end
-  
-  it 'should return nil for Johnny Depp' do
-    VCR.use_cassette('contact', :record => :new_episodes) do
-      @contact = @crm.contact "Johnny Depp"
-    end
-    @contact.should == nil    
-  end
-  
+    
   it 'should add Johnny Depp as a new contact' do
     VCR.use_cassette('add_contact', :record => :new_episodes) do
       @contact = @crm.add_contact "Johnny Depp"
