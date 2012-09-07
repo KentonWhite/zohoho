@@ -7,7 +7,7 @@ describe "Zohoho::Authentication" do
   end
 
   it 'Should retrieve an authorization token' do
-    token =     VCR.use_cassette('call', :record => :new_episodes) do
+    token = VCR.use_cassette('call', :record => :new_episodes) do
       Zohoho::Authentication.generate_token('ZohoCRM/crmapi', 'user', 'password')
     end
     token.should == 'e0c8f7c27d16587ff6d166419a529b4e'

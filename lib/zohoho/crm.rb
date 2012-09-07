@@ -8,6 +8,10 @@ module Zohoho
   class Crm
     include HTTParty
     
+    def self.generate_token(user, password)
+      Zohoho::Authentication.generate_token('ZohoCRM/crmapi', user, password)
+    end
+    
     def initialize(auth_token)
       @conn = Zohoho::Connection.new 'CRM', auth_token
     end
