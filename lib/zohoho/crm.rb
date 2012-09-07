@@ -8,10 +8,7 @@ module Zohoho
   class Crm
     include HTTParty
     
-    def initialize(username, password, apikey)
-      url = "https://accounts.zoho.com/apiauthtoken/nb/create?SCOPE=ZohoCRM/crmapi&EMAIL_ID=#{username}&PASSWORD=#{password}"
-      result = open(url).string
-      auth_token = result.match(/AUTHTOKEN=(.*)\nRESULT/m)[1].strip
+    def initialize(auth_token)
       @conn = Zohoho::Connection.new 'CRM', auth_token
     end
     

@@ -3,12 +3,10 @@ require File.expand_path(File.dirname(__FILE__) + '/spec_helper')
 describe "Zohoho::CRM" do 
   
   before :each do
-    @username = 'test'
-    @password = 'test'
-    @apikey = 'test'
+    @auth_token = 'b0d8b1e2dbe42ef9d60f463fc94557ff'
     vcr_config 'crm'    
     VCR.use_cassette('initialize', :record => :new_episodes) do
-      @crm = Zohoho::Crm.new(@username, @password, @apikey)       
+      @crm = Zohoho::Crm.new(@auth_token)       
     end
   end 
   
