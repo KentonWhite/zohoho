@@ -14,7 +14,7 @@ module Zohoho
       uri.query = URI.encode_www_form(:SCOPE => scope, :EMAIL_ID => email_id, :PASSWORD => password)
       
       response = nil
-      
+            
       Net::HTTP.start(uri.host, uri.port, :use_ssl => true) do |http|
         request  = Net::HTTP::Get.new uri.request_uri
         response = http.request(request)
