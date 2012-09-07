@@ -5,9 +5,7 @@ describe "Zohoho::CRM" do
   before :each do
     @auth_token = 'b0d8b1e2dbe42ef9d60f463fc94557ff'
     vcr_config 'crm'    
-    VCR.use_cassette('initialize', :record => :new_episodes) do
-      @crm = Zohoho::Crm.new(@auth_token)       
-    end
+    @crm = Zohoho::Crm.new(@auth_token)       
   end 
   
   it 'should get contact Kenton White' do
@@ -28,13 +26,13 @@ describe "Zohoho::CRM" do
     VCR.use_cassette('add_contact', :record => :new_episodes) do
       @contact = @crm.add_contact "Johnny Depp"
     end
-    @contact.should == "384023000000055001"        
+    @contact.should == "384023000000077001"        
   end
   
   it 'should add a note to Johnny Depp' do
     VCR.use_cassette('note', :record => :new_episodes) do
       @note = @crm.post_note "384023000000055001", "Note to self", "Don't do that again" 
     end
-    @note.should == "384023000000056001"    
+    @note.should == "384023000000078001"    
   end
 end
