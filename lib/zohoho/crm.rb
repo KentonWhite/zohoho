@@ -40,6 +40,17 @@ module Zohoho
       record['Id']
     end
 
+    def remove_lead(email)
+      leads = find_leads_by_email(email)
+      if leads.count > 0
+        leads.first['LEADID']
+        xmlData = parse_data({'id' => id}, 'Leads')
+        @conn.call('Leads', "deleteRecords", {:xmlData => xmlData, :newFormat => 1}, :get)
+      else
+        false
+      end
+    end
+
     def post_note(entity_id, note_title, note_content)
       xmlData = parse_data({'entityId' => entity_id, 'Note Title' => note_title, 'Note Content' => note_content}, 'Notes')
       record = @conn.call('Notes', 'insertRecords', {:xmlData => xmlData, :newFormat => 1}, :post) 
@@ -93,6 +104,10 @@ module Zohoho
       search_condition = "(Contact Name|ends with|#{last_name})"
       @conn.call('Contacts', 'getSearchRecords', :searchCondition => search_condition, :selectColumns => 'All')
     end
-    
+
+    def find_leads_by_email(email)
+      search_condition = "(email|=|#{email})"
+      @conn.call('Leads', 'getSearchRecords', :searchCondition => "(Email|=|#{email})", :selectColumns => 'All')
+    end
   end 
 end
