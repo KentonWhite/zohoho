@@ -44,6 +44,7 @@ module Zohoho
       leads = find_leads_by_email(email)
       if leads.count > 0
         leads.first['LEADID']
+        id = leads.first['LEADID']
         xmlData = parse_data({'id' => id}, 'Leads')
         @conn.call('Leads', "deleteRecords", {:xmlData => xmlData, :newFormat => 1}, :get)
       else
