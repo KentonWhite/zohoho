@@ -53,6 +53,14 @@ describe "Zohoho::CRM" do
       end
       @note.should == "384023000000078001"    
     end
+
+    it 'should delete a lead' do
+      VCR.use_cassette('delete_lead', :record => :new_episodes) do
+        @response = @crm.remove_lead 'depp@example.com'
+      end
+      @response.should == []
+    end
+
   end
   
 end
