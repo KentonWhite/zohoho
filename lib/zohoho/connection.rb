@@ -48,7 +48,11 @@ module Zohoho
       puts raw unless Rails.env.production?
       return [] if raw['response']['result'].nil?
       record = raw['response']['result']['recorddetail'] 
-      raw_to_hash record['FL']
+      if record
+        raw_to_hash record['FL']
+      else
+        raw['response']['result']['message']
+      end
     end
     
 
