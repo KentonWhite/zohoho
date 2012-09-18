@@ -57,7 +57,7 @@ module Zohoho
         id = leads.first['LEADID']
         info.merge!({'id' => id})
         xmlData = parse_data(info, 'Leads')
-        record = @conn.call('Leads', "deleteRecords?id=#{id}", {:xmlData => xmlData, :newFormat => 1}, :post)
+        record = @conn.call('Leads', "updateRecords?id=#{id}", {:xmlData => xmlData, :newFormat => 1}, :post)
       else
         false
       end
