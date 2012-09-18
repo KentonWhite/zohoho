@@ -35,6 +35,7 @@ module Zohoho
     private
     
     def parse_raw_get(raw, entry)
+      puts raw unless Rails.env.production?
       return [] if raw['response']['result'].nil?
       rows = raw['response']['result'][entry]['row'] 
       rows = [rows] unless rows.class == Array
@@ -44,6 +45,7 @@ module Zohoho
     end
     
     def parse_raw_post(raw)
+      puts raw unless Rails.env.production?
       return [] if raw['response']['result'].nil?
       record = raw['response']['result']['recorddetail'] 
       raw_to_hash record['FL']
