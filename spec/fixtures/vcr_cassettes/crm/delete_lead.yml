@@ -2,39 +2,6 @@
 - !ruby/struct:VCR::HTTPInteraction 
   request: !ruby/struct:VCR::Request 
     method: :get
-    uri: https://crm.zoho.com:443/crm/private/json/Leads/getSearchRecords?scope=crmapi&authtoken=b0d8b1e2dbe42ef9d60f463fc94557ff&searchCondition=(Email%7C%3D%7Ctest%40example.com)&selectColumns=All
-    body: 
-    headers: 
-  response: !ruby/struct:VCR::Response 
-    status: !ruby/struct:VCR::ResponseStatus 
-      code: 200
-      message: OK
-    headers: 
-      strict-transport-security: 
-      - max-age=432000
-      expires: 
-      - Thu, 01 Jan 1970 00:00:00 GMT
-      content-type: 
-      - text/plain;charset=utf-8
-      date: 
-      - Mon, 17 Sep 2012 22:47:36 GMT
-      server: 
-      - ZGS
-      content-length: 
-      - "127"
-      set-cookie: 
-      - crmcsr=e969518f-470d-4b64-a91f-2ec018ffb3d9; Path=/
-      cache-control: 
-      - no-cache
-      pragma: 
-      - no-cache
-    body: |
-      {"response":{"nodata":{"message":"There is no data to show","code":"4422"},"uri":"/crm/private/json/Leads/getSearchRecords"}}
-
-    http_version: "1.1"
-- !ruby/struct:VCR::HTTPInteraction 
-  request: !ruby/struct:VCR::Request 
-    method: :get
     uri: https://crm.zoho.com:443/crm/private/json/Leads/getSearchRecords?scope=crmapi&authtoken=b0d8b1e2dbe42ef9d60f463fc94557ff&searchCondition=(Email%7C%3D%7Cdepp%40example.com)&selectColumns=All
     body: 
     headers: 
@@ -70,9 +37,9 @@
     http_version: "1.1"
 - !ruby/struct:VCR::HTTPInteraction 
   request: !ruby/struct:VCR::Request 
-    method: :get
-    uri: https://crm.zoho.com:443/crm/private/json/Leads/deleteRecords?newFormat=1&scope=crmapi&authtoken=b0d8b1e2dbe42ef9d60f463fc94557ff&xmlData=%3CLeads%3E%0A%20%20%3Crow%20no%3D%221%22%3E%0A%20%20%20%20%3CFL%20val%3D%22id%22%3E2237552960%3C%2FFL%3E%0A%20%20%3C%2Frow%3E%0A%3C%2FLeads%3E%0A
-    body: 
+    method: :post
+    uri: https://crm.zoho.com:443/crm/private/json/Leads/deleteRecords?id=384023000000079001
+    body: xmlData=%3CLeads%3E%0A%20%20%3Crow%20no%3D%221%22%3E%0A%20%20%20%20%3CFL%20val%3D%22id%22%3E384023000000079001%3C%2FFL%3E%0A%20%20%3C%2Frow%3E%0A%3C%2FLeads%3E%0A&newFormat=1&authtoken=b0d8b1e2dbe42ef9d60f463fc94557ff&scope=crmapi
     headers: 
   response: !ruby/struct:VCR::Response 
     status: !ruby/struct:VCR::ResponseStatus 
@@ -81,26 +48,23 @@
     headers: 
       strict-transport-security: 
       - max-age=432000
-      p3p: 
-      - CP="CAO PSA OUR"
+      set-cookie: 
+      - crmcsr=237547ce-ded5-4a02-9bb1-65dd30750e50; Path=/
+      pragma: 
+      - no-cache
+      cache-control: 
+      - no-cache
       expires: 
       - Thu, 01 Jan 1970 00:00:00 GMT
       content-type: 
       - text/plain;charset=utf-8
+      content-length: 
+      - "164"
+      date: 
+      - Tue, 18 Sep 2012 18:11:15 GMT
       server: 
       - ZGS
-      date: 
-      - Mon, 17 Sep 2012 22:54:29 GMT
-      content-length: 
-      - "122"
-      set-cookie: 
-      - crmcsr=333d0968-d915-41f2-a547-735a8a889d5a; Path=/
-      - a623215f16=3; Path=/
-      cache-control: 
-      - no-cache
-      pragma: 
-      - no-cache
     body: |
-      {"response": {"uri":"/crm/private/json/Leads/deleteRecords","error": {"code":4832,"message":"id parameter is missing"}}}
+      {"response":{"result":{"message":"Record Id(s) : 384023000000079001,Record(s) deleted successfully","code":"5000"},"uri":"/crm/private/json/Leads/deleteRecords"}}
 
     http_version: "1.1"

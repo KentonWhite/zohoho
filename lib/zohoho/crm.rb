@@ -45,7 +45,8 @@ module Zohoho
       if leads.count > 0
         id = leads.first['LEADID']
         xmlData = parse_data({'id' => id}, 'Leads')
-        @conn.call('Leads', "deleteRecords?id=#{id}", {:xmlData => xmlData, :newFormat => 1}, :post)
+        result = @conn.call('Leads', "deleteRecords?id=#{id}", {:xmlData => xmlData, :newFormat => 1}, :post)
+        result =~ /#{id}/ ? id : false
       else
         false
       end

@@ -58,7 +58,7 @@ describe "Zohoho::CRM" do
       VCR.use_cassette('delete_lead', :record => :new_episodes) do
         @response = @crm.remove_lead 'depp@example.com'
       end
-      @response.should == []
+      @response.should == "384023000000079001"
     end
 
   end
