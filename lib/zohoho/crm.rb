@@ -43,10 +43,21 @@ module Zohoho
     def remove_lead(email)
       leads = find_leads_by_email(email)
       if leads.count > 0
-        leads.first['LEADID']
         id = leads.first['LEADID']
         xmlData = parse_data({'id' => id}, 'Leads')
-        @conn.call('Leads', "deleteRecords", {:xmlData => xmlData, :newFormat => 1}, :get)
+        @conn.call('Leads', "deleteRecords?id=#{id}", {:xmlData => xmlData, :newFormat => 1}, :post)
+      else
+        false
+      end
+    end
+
+    def update_lead(email, info = {})
+      leads = find_leads_by_email(email)
+      if leads.count > 0
+        id = leads.first['LEADID']
+        info.merge!({'id' => id})
+        xmlData = parse_data(info, 'Leads')
+        record = @conn.call('Leads', "deleteRecords?id=#{id}", {:xmlData => xmlData, :newFormat => 1}, :post)
       else
         false
       end
@@ -81,7 +92,12 @@ module Zohoho
     def call(*params)
       @conn.call(*params)
     end
-    
+
+    def find_leads_by_email(email)
+      search_condition = "(email|=|#{email})"
+      @conn.call('Leads', 'getSearchRecords', :searchCondition => "(Email|=|#{email})", :selectColumns => 'All')
+    end
+
     private 
     
     def parse_name(name)
@@ -106,9 +122,5 @@ module Zohoho
       @conn.call('Contacts', 'getSearchRecords', :searchCondition => search_condition, :selectColumns => 'All')
     end
 
-    def find_leads_by_email(email)
-      search_condition = "(email|=|#{email})"
-      @conn.call('Leads', 'getSearchRecords', :searchCondition => "(Email|=|#{email})", :selectColumns => 'All')
-    end
   end 
 end
