@@ -4,7 +4,7 @@
 
 For new users, retrieve a token:
 	
-	@auth_token = Zohoho.generate_token("username", "password")
+	@auth_token = Zohoho::Crm.generate_token("username", "password")
 	
 This token will be used for all future calls for this user.  The token has no expiration date.
 
