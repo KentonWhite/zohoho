@@ -16,29 +16,9 @@ Gem::Specification.new do |s|
     "LICENSE.txt",
     "README.rdoc"
   ]
-  s.files = [
-    ".autotest",
-    ".document",
-    "Gemfile",
-    "Gemfile.lock",
-    "LICENSE.txt",
-    "README.rdoc",
-    "Rakefile",
-    "VERSION",
-    "autotest/discover.rb",
-    "lib/zohoho.rb",
-    "lib/zohoho/connection.rb",
-    "lib/zohoho/crm.rb",
-    "spec/connection_spec.rb",
-    "spec/crm_spec.rb",
-    "spec/fixtures/vcr_cassettes/connection/call.yml",
-    "spec/fixtures/vcr_cassettes/connection/ticket.yml",
-    "spec/fixtures/vcr_cassettes/crm/add_contact.yml",
-    "spec/fixtures/vcr_cassettes/crm/contact.yml",
-    "spec/fixtures/vcr_cassettes/crm/note.yml",
-    "spec/spec_helper.rb",
-    "zohoho.gemspec"
-  ]
+  s.files         = `git ls-files`.split("\n")
+  s.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")
+  s.executables   = `git ls-files -- bin/*`.split("\n").map{ |f| File.basename(f) }
   s.homepage = %q{http://github.com/kwhite/zohoho}
   s.licenses = ["MIT"]
   s.require_paths = ["lib"]
