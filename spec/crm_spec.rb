@@ -5,16 +5,14 @@ describe "Zohoho::CRM" do
   context 'class methods' do
     
     before :each do
-      @user = 'user'
-      @password = 'password'
       vcr_config 'crm'          
     end
     
     it 'should generate a token for the CRM' do
       token = VCR.use_cassette('generate_token', :record => :new_episodes) do
-        Zohoho::Crm.generate_token('user', 'password')
+        Zohoho::Crm.generate_token(ENV['USERNAME'], ENV['PASSWORD'])
       end
-      token.should == 'e0c8f7c27d16587ff6d166419a529b4e' 
+      token.should == 'af86cc982883822471f67de3f71956e6'
     end
   end
   
@@ -43,7 +41,7 @@ describe "Zohoho::CRM" do
       VCR.use_cassette('add_contact', :record => :new_episodes) do
         @contact = @crm.add_contact "Johnny Depp"
       end
-      @contact.should == "384023000000077001"        
+      @contact.should == "588305000000570009"
     end
   
     it 'should add a note to Johnny Depp' do
@@ -57,7 +55,7 @@ describe "Zohoho::CRM" do
       VCR.use_cassette('delete_lead', :record => :new_episodes) do
         @response = @crm.remove_lead 'depp@example.com'
       end
-      @response.should == "588305000000567019"
+      @response.should == "588305000000567037"
     end
 
     it "should get a lead's name" do

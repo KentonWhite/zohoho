@@ -2,7 +2,7 @@
 - !ruby/struct:VCR::HTTPInteraction
   request: !ruby/struct:VCR::Request
     method: :get
-    uri: https://crm.zoho.com:443/crm/private/json/Contacts/getSearchRecords?searchCondition=%28Contact+Name%7Cends+with%7CWhite%29&selectColumns=All&authtoken=<TOKEN>&scope=crmapi
+    uri: https://crm.zoho.com:443/crm/private/json/Contacts/getSearchRecords?searchCondition=(Contact%20Name%7Cends%20with%7CWhite)&selectColumns=All&authtoken=<TOKEN>&scope=crmapi
     body: 
     headers: 
   response: !ruby/struct:VCR::Response
@@ -13,8 +13,8 @@
       strict-transport-security:
       - max-age=432000
       set-cookie:
-      - crmcsr=d928db9e-b358-43d3-95b7-f3f7758f0cfb; Path=/
-      - a623215f16=8; Path=/
+      - crmcsr=b8688a7f-e62b-4535-9f04-32ecdceb8688; Path=/
+      - a623215f16=12; Path=/
       pragma:
       - no-cache
       cache-control:
@@ -24,18 +24,18 @@
       content-type:
       - text/plain;charset=utf-8
       content-length:
-      - '721'
+      - '681'
       date:
-      - Wed, 19 Sep 2012 22:18:41 GMT
+      - Wed, 19 Sep 2012 22:59:43 GMT
       server:
       - ZGS
       p3p:
       - CP="CAO PSA OUR"
     body: ! "{\"response\":{\"result\":{\"Contacts\":{\"row\":{\"no\":\"1\",\"FL\":[{\"content\":\"588305000000567027\",\"val\":\"CONTACTID\"},{\"content\":\"588305000000453003\",\"val\":\"SMOWNERID\"},{\"content\":\"Stan
-      Rosenthal\",\"val\":\"Contact Owner\"},{\"content\":\"Kenton\",\"val\":\"First
-      Name\"},{\"content\":\"White\",\"val\":\"Last Name\"},{\"content\":\"588305000000453003\",\"val\":\"SMCREATORID\"},{\"content\":\"Stan
+      Rosenthal\",\"val\":\"Contact Owner\"},{\"content\":\"White\",\"val\":\"Last
+      Name\"},{\"content\":\"588305000000453003\",\"val\":\"SMCREATORID\"},{\"content\":\"Stan
       Rosenthal\",\"val\":\"Created By\"},{\"content\":\"588305000000453003\",\"val\":\"MODIFIEDBY\"},{\"content\":\"Stan
       Rosenthal\",\"val\":\"Modified By\"},{\"content\":\"2012-09-19 15:14:27\",\"val\":\"Created
-      Time\"},{\"content\":\"2012-09-19 15:14:27\",\"val\":\"Modified Time\"},{\"content\":\"2012-09-19
-      15:14:27\",\"val\":\"Last Activity Time\"}]}}},\"uri\":\"/crm/private/json/Contacts/getSearchRecords\"}}\r\n"
+      Time\"},{\"content\":\"2012-09-19 15:28:28\",\"val\":\"Modified Time\"},{\"content\":\"2012-09-19
+      15:28:28\",\"val\":\"Last Activity Time\"}]}}},\"uri\":\"/crm/private/json/Contacts/getSearchRecords\"}}\r\n"
     http_version: '1.1'

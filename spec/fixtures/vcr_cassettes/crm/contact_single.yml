@@ -2,7 +2,7 @@
 - !ruby/struct:VCR::HTTPInteraction
   request: !ruby/struct:VCR::Request
     method: :get
-    uri: https://crm.zoho.com:443/crm/private/json/Contacts/getSearchRecords?searchCondition=%28Contact+Name%7Cends+with%7CWhite%29&selectColumns=All&authtoken=<TOKEN>&scope=crmapi
+    uri: https://crm.zoho.com:443/crm/private/json/Contacts/getSearchRecords?searchCondition=(Contact%20Name%7Cends%20with%7CWhite)&selectColumns=All&authtoken=<TOKEN>&scope=crmapi
     body: 
     headers: 
   response: !ruby/struct:VCR::Response
@@ -13,8 +13,8 @@
       strict-transport-security:
       - max-age=432000
       set-cookie:
-      - crmcsr=0e059e10-bef4-417c-be76-e4704ee0ff0a; Path=/
-      - a623215f16=8; Path=/
+      - crmcsr=ef0865cd-0494-4015-812c-bfe868961572; Path=/
+      - a623215f16=0; Path=/
       pragma:
       - no-cache
       cache-control:
@@ -26,7 +26,7 @@
       content-length:
       - '681'
       date:
-      - Wed, 19 Sep 2012 22:46:42 GMT
+      - Wed, 19 Sep 2012 22:59:43 GMT
       server:
       - ZGS
       p3p:

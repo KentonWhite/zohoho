@@ -25,6 +25,8 @@ VCR.config do |c|
   c.stub_with :fakeweb # or :webmock
   c.default_cassette_options = {:record => :none}
   c.filter_sensitive_data('<TOKEN>') { ENV['TOKEN'] }
+  c.filter_sensitive_data('<USERNAME>') { ENV['USERNAME'] }
+  c.filter_sensitive_data('<PASSWORD>') { ENV['PASSWORD'] }
 end
 
 def vcr_config(dir_name)

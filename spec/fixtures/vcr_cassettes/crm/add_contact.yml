@@ -13,7 +13,8 @@
       strict-transport-security:
       - max-age=432000
       set-cookie:
-      - crmcsr=3be7b991-7448-4cdf-80e4-9b98f470c97f; Path=/
+      - crmcsr=4af3da91-0760-4367-9f5a-1ca237ec33a7; Path=/
+      - a623215f16=4; Path=/
       pragma:
       - no-cache
       cache-control:
@@ -23,40 +24,15 @@
       content-type:
       - text/plain;charset=utf-8
       content-length:
-      - '387'
+      - '383'
       date:
-      - Fri, 07 Sep 2012 17:16:11 GMT
+      - Wed, 19 Sep 2012 22:59:43 GMT
       server:
       - ZGS
-    body: ! '{"response":{"result":{"message":"Record(s) added successfully","recorddetail":{"FL":[{"content":"384023000000077001","val":"Id"},{"content":"2012-09-07
-      17:16:12","val":"Created Time"},{"content":"2012-09-07 17:16:12","val":"Modified
-      Time"},{"content":"kentonwhite","val":"Created By"},{"content":"kentonwhite","val":"Modified
-      By"}]}},"uri":"/crm/private/json/Contacts/insertRecords"}}
-
-'
-    http_version: '1.1'
-- !ruby/struct:VCR::HTTPInteraction
-  request: !ruby/struct:VCR::Request
-    method: :post
-    uri: https://crm.zoho.com:443/crm/private/json/Contacts/insertRecords?xmlData=%3CContacts%3E%0A++%3Crow+no%3D%221%22%3E%0A++++%3CFL+val%3D%22First+Name%22%3EJohnny%3C%2FFL%3E%0A++++%3CFL+val%3D%22Last+Name%22%3EDepp%3C%2FFL%3E%0A++%3C%2Frow%3E%0A%3C%2FContacts%3E%0A&newFormat=1&authtoken=<TOKEN>&scope=crmapi
-    body: 
-    headers: 
-  response: !ruby/struct:VCR::Response
-    status: !ruby/struct:VCR::ResponseStatus
-      code: 411
-      message: Length Required
-    headers:
-      content-type:
-      - text/html
-      content-length:
-      - '357'
-      date:
-      - Wed, 19 Sep 2012 22:07:49 GMT
-      server:
-      - ZGS
-    body: ! "<?xml version=\"1.0\" encoding=\"iso-8859-1\"?>\n<!DOCTYPE html PUBLIC
-      \"-//W3C//DTD XHTML 1.0 Transitional//EN\"\n         \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\">\n<html
-      xmlns=\"http://www.w3.org/1999/xhtml\" xml:lang=\"en\" lang=\"en\">\n <head>\n
-      \ <title>411 - Length Required</title>\n </head>\n <body>\n  <h1>411 - Length
-      Required</h1>\n </body>\n</html>\n"
+      p3p:
+      - CP="CAO PSA OUR"
+    body: ! "{\"response\":{\"result\":{\"message\":\"Record(s) added successfully\",\"recorddetail\":{\"FL\":[{\"content\":\"588305000000570009\",\"val\":\"Id\"},{\"content\":\"2012-09-19
+      15:59:44\",\"val\":\"Created Time\"},{\"content\":\"2012-09-19 15:59:44\",\"val\":\"Modified
+      Time\"},{\"content\":\"Rosenthal\",\"val\":\"Created By\"},{\"content\":\"Rosenthal\",\"val\":\"Modified
+      By\"}]}},\"uri\":\"/crm/private/json/Contacts/insertRecords\"}}\r\n"
     http_version: '1.1'

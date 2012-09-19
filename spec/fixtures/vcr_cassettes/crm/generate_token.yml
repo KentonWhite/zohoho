@@ -1,32 +1,35 @@
---- 
-- !ruby/struct:VCR::HTTPInteraction 
-  request: !ruby/struct:VCR::Request 
+---
+- !ruby/struct:VCR::HTTPInteraction
+  request: !ruby/struct:VCR::Request
     method: :get
-    uri: https://accounts.zoho.com:443/apiauthtoken/nb/create?SCOPE=ZohoCRM%2Fcrmapi&EMAIL_ID=user&PASSWORD=password
+    uri: https://accounts.zoho.com:443/apiauthtoken/nb/create?SCOPE=ZohoCRM%2Fcrmapi&EMAIL_ID=<USERNAME>&PASSWORD=<PASSWORD>
     body: 
     headers: 
-  response: !ruby/struct:VCR::Response 
-    status: !ruby/struct:VCR::ResponseStatus 
+  response: !ruby/struct:VCR::Response
+    status: !ruby/struct:VCR::ResponseStatus
       code: 200
       message: OK
-    headers: 
-      strict-transport-security: 
+    headers:
+      strict-transport-security:
       - max-age=432000
-      set-cookie: 
-      - iamcsr=f889cdbe-f6ff-4087-a513-9e989a96a68d; Path=/
-      - 1e31cb8b29=2; Path=/
-      date: 
-      - Fri, 07 Sep 2012 17:09:46 GMT
-      server: 
+      set-cookie:
+      - iamcsr=316166d2-d380-4756-8035-39e19b365cea; Path=/
+      - 1e31cb8b29=1; Path=/
+      date:
+      - Wed, 19 Sep 2012 23:10:59 GMT
+      server:
       - ZGS
-      p3p: 
+      p3p:
       - CP="CAO PSA OUR"
-      transfer-encoding: 
+      transfer-encoding:
       - chunked
-    body: |
-      #
-      #Fri Sep 07 10:09:46 PDT 2012
-      AUTHTOKEN=e0c8f7c27d16587ff6d166419a529b4e
+    body: ! '#
+
+      #Wed Sep 19 16:11:00 PDT 2012
+
+      AUTHTOKEN=af86cc982883822471f67de3f71956e6
+
       RESULT=TRUE
 
-    http_version: "1.1"
+'
+    http_version: '1.1'
