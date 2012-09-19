@@ -21,9 +21,8 @@ describe "Zohoho::CRM" do
   context 'instance methods' do
     
     before :each do
-      @auth_token = 'b0d8b1e2dbe42ef9d60f463fc94557ff'
       vcr_config 'crm'    
-      @crm = Zohoho::Crm.new(@auth_token)       
+      @crm = Zohoho::Crm.new(ENV['TOKEN'])
     end 
   
     it 'should get contact Kenton White' do

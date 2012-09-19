@@ -3,6 +3,8 @@ source "http://rubygems.org"
 # Specify gem dependencies in gemspec
 gemspec
 
+gem 'foreman'
+
 # Add dependencies to develop your gem here.
 # Include everything needed to run rake, tests, features, etc.
 group :development do

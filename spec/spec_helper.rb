@@ -26,6 +26,7 @@ def vcr_config(dir_name)
     c.cassette_library_dir = "spec/fixtures/vcr_cassettes/#{dir_name}"
     c.stub_with :fakeweb # or :webmock
     c.default_cassette_options = {:record => :none}
+    c.filter_sensitive_data('<TOKEN>') { ENV['TOKEN'] }
   end 
 end
 

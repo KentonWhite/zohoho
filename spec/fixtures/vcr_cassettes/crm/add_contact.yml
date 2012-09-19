@@ -3,7 +3,7 @@
   request: !ruby/struct:VCR::Request 
     method: :post
     uri: https://crm.zoho.com:443/crm/private/json/Contacts/insertRecords
-    body: xmlData=%3CContacts%3E%0A%20%20%3Crow%20no%3D%221%22%3E%0A%20%20%20%20%3CFL%20val%3D%22First%20Name%22%3EJohnny%3C%2FFL%3E%0A%20%20%20%20%3CFL%20val%3D%22Last%20Name%22%3EDepp%3C%2FFL%3E%0A%20%20%3C%2Frow%3E%0A%3C%2FContacts%3E%0A&newFormat=1&authtoken=b0d8b1e2dbe42ef9d60f463fc94557ff&scope=crmapi
+    body: xmlData=%3CContacts%3E%0A%20%20%3Crow%20no%3D%221%22%3E%0A%20%20%20%20%3CFL%20val%3D%22First%20Name%22%3EJohnny%3C%2FFL%3E%0A%20%20%20%20%3CFL%20val%3D%22Last%20Name%22%3EDepp%3C%2FFL%3E%0A%20%20%3C%2Frow%3E%0A%3C%2FContacts%3E%0A&newFormat=1&authtoken=<TOKEN>&scope=crmapi
     headers: 
   response: !ruby/struct:VCR::Response 
     status: !ruby/struct:VCR::ResponseStatus 

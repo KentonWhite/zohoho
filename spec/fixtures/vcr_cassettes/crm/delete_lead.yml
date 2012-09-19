@@ -2,7 +2,7 @@
 - !ruby/struct:VCR::HTTPInteraction 
   request: !ruby/struct:VCR::Request 
     method: :get
-    uri: https://crm.zoho.com:443/crm/private/json/Leads/getSearchRecords?scope=crmapi&authtoken=b0d8b1e2dbe42ef9d60f463fc94557ff&searchCondition=(Email%7C%3D%7Cdepp%40example.com)&selectColumns=All
+    uri: https://crm.zoho.com:443/crm/private/json/Leads/getSearchRecords?scope=crmapi&authtoken=<TOKEN>&searchCondition=(Email%7C%3D%7Cdepp%40example.com)&selectColumns=All
     body: 
     headers: 
   response: !ruby/struct:VCR::Response 
@@ -39,7 +39,7 @@
   request: !ruby/struct:VCR::Request 
     method: :post
     uri: https://crm.zoho.com:443/crm/private/json/Leads/deleteRecords?id=384023000000079001
-    body: xmlData=%3CLeads%3E%0A%20%20%3Crow%20no%3D%221%22%3E%0A%20%20%20%20%3CFL%20val%3D%22id%22%3E384023000000079001%3C%2FFL%3E%0A%20%20%3C%2Frow%3E%0A%3C%2FLeads%3E%0A&newFormat=1&authtoken=b0d8b1e2dbe42ef9d60f463fc94557ff&scope=crmapi
+    body: xmlData=%3CLeads%3E%0A%20%20%3Crow%20no%3D%221%22%3E%0A%20%20%20%20%3CFL%20val%3D%22id%22%3E384023000000079001%3C%2FFL%3E%0A%20%20%3C%2Frow%3E%0A%3C%2FLeads%3E%0A&newFormat=1&authtoken=<TOKEN>&scope=crmapi
     headers: 
   response: !ruby/struct:VCR::Response 
     status: !ruby/struct:VCR::ResponseStatus 

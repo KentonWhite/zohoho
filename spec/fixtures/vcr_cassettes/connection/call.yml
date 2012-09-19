@@ -2,7 +2,7 @@
 - !ruby/struct:VCR::HTTPInteraction 
   request: !ruby/struct:VCR::Request 
     method: :get
-    uri: https://crm.zoho.com:443/crm/private/json/Contacts/getRecords?authtoken=b0d8b1e2dbe42ef9d60f463fc94557ff&scope=crmapi
+    uri: https://crm.zoho.com:443/crm/private/json/Contacts/getRecords?authtoken=<TOKEN>&scope=crmapi
     body: 
     headers: 
   response: !ruby/struct:VCR::Response 
