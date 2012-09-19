@@ -19,14 +19,17 @@ RSpec.configure do |config|
   # config.mock_with :rr
   # config.mock_with :rspec
 
-end                                    
+end
+
+VCR.config do |c|
+  c.stub_with :fakeweb # or :webmock
+  c.default_cassette_options = {:record => :none}
+  c.filter_sensitive_data('<TOKEN>') { ENV['TOKEN'] }
+end
 
 def vcr_config(dir_name)
   VCR.config do |c|
     c.cassette_library_dir = "spec/fixtures/vcr_cassettes/#{dir_name}"
-    c.stub_with :fakeweb # or :webmock
-    c.default_cassette_options = {:record => :none}
-    c.filter_sensitive_data('<TOKEN>') { ENV['TOKEN'] }
   end 
 end
 

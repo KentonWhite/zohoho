@@ -22,7 +22,8 @@ module Zohoho
       
       case http_method
       when :get
-        raw = JSON.parse(self.class.get(url, :query => query))
+        query = URI.encode_www_form(query)
+        raw = JSON.parse(self.class.get("#{url}?#{query}"))
         parse_raw_get(raw, entry)    
       when :post
         raw = JSON.parse(self.class.post(url, :body => query))

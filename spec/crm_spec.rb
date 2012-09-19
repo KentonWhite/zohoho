@@ -29,14 +29,14 @@ describe "Zohoho::CRM" do
       VCR.use_cassette('contact', :record => :new_episodes) do
         @contact = @crm.contact "Kenton White"
       end
-      @contact["CONTACTID"].should == "384023000000045001"
+      @contact["CONTACTID"].should == "588305000000567027"
     end 
   
-    it 'should get single name contact Girih' do
+    it 'should get single name contact White' do
       VCR.use_cassette('contact_single', :record => :new_episodes) do
-        @contact = @crm.contact "Girih"
+        @contact = @crm.contact "White"
       end
-      @contact["CONTACTID"].should == "384023000000051007"    
+      @contact["CONTACTID"].should == "588305000000567027"
     end
     
     it 'should add Johnny Depp as a new contact' do
@@ -57,7 +57,14 @@ describe "Zohoho::CRM" do
       VCR.use_cassette('delete_lead', :record => :new_episodes) do
         @response = @crm.remove_lead 'depp@example.com'
       end
-      @response.should == "384023000000079001"
+      @response.should == "588305000000567019"
+    end
+
+    it "should get a lead's name" do
+      VCR.use_cassette('lead_name', :record => :new_episodes) do
+        lead = Zohoho::Lead.new.find 'willy@example.com'
+        lead['LEADID'].should == "588305000000571003"
+      end
     end
 
   end
