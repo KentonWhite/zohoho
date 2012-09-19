@@ -15,4 +15,5 @@ group :development do
   gem "fakeweb", "~> 1.3.0"
   gem "vcr", "~> 1.11.3"
   gem "mocha", "~> 0.10.5"
+  gem 'debugger'
 end
