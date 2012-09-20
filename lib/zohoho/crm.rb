@@ -33,37 +33,6 @@ module Zohoho
       record['Id']    
     end
 
-    def add_lead(company, last_name, info = {})
-      info.merge!({'Company' => company, 'Last Name' => last_name})
-      xmlData = parse_data(info, 'Leads')
-      record = @conn.call('Leads', 'insertRecords', {:xmlData => xmlData, :newFormat => 1}, :post)
-      record['Id']
-    end
-
-    def remove_lead(email)
-      leads = find_leads_by_email(email)
-      if leads.count > 0
-        id = leads.first['LEADID']
-        xmlData = parse_data({'id' => id}, 'Leads')
-        result = @conn.call('Leads', "deleteRecords?id=#{id}", {:xmlData => xmlData, :newFormat => 1}, :post)
-        result =~ /#{id}/ ? id : false
-      else
-        false
-      end
-    end
-
-    def update_lead(email, info = {})
-      leads = find_leads_by_email(email)
-      if leads.count > 0
-        id = leads.first['LEADID']
-        info.merge!({'id' => id})
-        xmlData = parse_data(info, 'Leads')
-        record = @conn.call('Leads', "updateRecords?id=#{id}", {:xmlData => xmlData, :newFormat => 1}, :post)
-      else
-        false
-      end
-    end
-
     def post_note(entity_id, note_title, note_content)
       xmlData = parse_data({'entityId' => entity_id, 'Note Title' => note_title, 'Note Content' => note_content}, 'Notes')
       record = @conn.call('Notes', 'insertRecords', {:xmlData => xmlData, :newFormat => 1}, :post) 
@@ -92,11 +61,6 @@ module Zohoho
     
     def call(*params)
       @conn.call(*params)
-    end
-
-    def find_leads_by_email(email)
-      search_condition = "(email|=|#{email})"
-      @conn.call('Leads', 'getSearchRecords', :searchCondition => "(Email|=|#{email})", :selectColumns => 'All')
     end
 
     private 

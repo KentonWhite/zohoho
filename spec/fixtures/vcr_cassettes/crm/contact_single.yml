@@ -1,37 +1,41 @@
---- 
-- !ruby/struct:VCR::HTTPInteraction 
-  request: !ruby/struct:VCR::Request 
+---
+- !ruby/struct:VCR::HTTPInteraction
+  request: !ruby/struct:VCR::Request
     method: :get
-    uri: https://crm.zoho.com:443/crm/private/json/Contacts/getSearchRecords?searchCondition=(Contact%20Name%7Cends%20with%7CGirih)&selectColumns=All&authtoken=b0d8b1e2dbe42ef9d60f463fc94557ff&scope=crmapi
+    uri: https://crm.zoho.com:443/crm/private/json/Contacts/getSearchRecords?searchCondition=(Contact%20Name%7Cends%20with%7CWhite)&selectColumns=All&authtoken=<TOKEN>&scope=crmapi
     body: 
     headers: 
-  response: !ruby/struct:VCR::Response 
-    status: !ruby/struct:VCR::ResponseStatus 
+  response: !ruby/struct:VCR::Response
+    status: !ruby/struct:VCR::ResponseStatus
       code: 200
       message: OK
-    headers: 
-      strict-transport-security: 
+    headers:
+      strict-transport-security:
       - max-age=432000
-      set-cookie: 
-      - crmcsr=f4def3f2-1ebe-4164-82c2-f458c1b12727; Path=/
-      - a623215f16=9; Path=/
-      pragma: 
+      set-cookie:
+      - crmcsr=ef0865cd-0494-4015-812c-bfe868961572; Path=/
+      - a623215f16=0; Path=/
+      pragma:
       - no-cache
-      cache-control: 
+      cache-control:
       - no-cache
-      expires: 
+      expires:
       - Thu, 01 Jan 1970 00:00:00 GMT
-      content-type: 
+      content-type:
       - text/plain;charset=utf-8
-      content-length: 
-      - "760"
-      date: 
-      - Fri, 07 Sep 2012 17:16:10 GMT
-      server: 
+      content-length:
+      - '681'
+      date:
+      - Wed, 19 Sep 2012 22:59:43 GMT
+      server:
       - ZGS
-      p3p: 
+      p3p:
       - CP="CAO PSA OUR"
-    body: |
-      {"response":{"result":{"Contacts":{"row":{"no":"1","FL":[{"content":"384023000000051007","val":"CONTACTID"},{"content":"384023000000042003","val":"SMOWNERID"},{"content":"kentonwhite","val":"Contact Owner"},{"content":"Girih","val":"Last Name"},{"content":"384023000000042003","val":"SMCREATORID"},{"content":"kentonwhite","val":"Created By"},{"content":"384023000000042003","val":"MODIFIEDBY"},{"content":"kentonwhite","val":"Modified By"},{"content":"2011-05-12 14:25:21","val":"Created Time"},{"content":"2011-05-12 14:25:21","val":"Modified Time"},{"content":"false","val":"Email Opt Out"},{"content":"false","val":"Add to QuickBooks"},{"content":"2011-05-12 14:25:21","val":"Last Activity Time"}]}}},"uri":"/crm/private/json/Contacts/getSearchRecords"}}
-
-    http_version: "1.1"
+    body: ! "{\"response\":{\"result\":{\"Contacts\":{\"row\":{\"no\":\"1\",\"FL\":[{\"content\":\"588305000000567027\",\"val\":\"CONTACTID\"},{\"content\":\"588305000000453003\",\"val\":\"SMOWNERID\"},{\"content\":\"Stan
+      Rosenthal\",\"val\":\"Contact Owner\"},{\"content\":\"White\",\"val\":\"Last
+      Name\"},{\"content\":\"588305000000453003\",\"val\":\"SMCREATORID\"},{\"content\":\"Stan
+      Rosenthal\",\"val\":\"Created By\"},{\"content\":\"588305000000453003\",\"val\":\"MODIFIEDBY\"},{\"content\":\"Stan
+      Rosenthal\",\"val\":\"Modified By\"},{\"content\":\"2012-09-19 15:14:27\",\"val\":\"Created
+      Time\"},{\"content\":\"2012-09-19 15:28:28\",\"val\":\"Modified Time\"},{\"content\":\"2012-09-19
+      15:28:28\",\"val\":\"Last Activity Time\"}]}}},\"uri\":\"/crm/private/json/Contacts/getSearchRecords\"}}\r\n"
+    http_version: '1.1'

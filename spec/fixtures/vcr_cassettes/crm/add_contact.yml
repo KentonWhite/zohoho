@@ -1,34 +1,38 @@
---- 
-- !ruby/struct:VCR::HTTPInteraction 
-  request: !ruby/struct:VCR::Request 
+---
+- !ruby/struct:VCR::HTTPInteraction
+  request: !ruby/struct:VCR::Request
     method: :post
     uri: https://crm.zoho.com:443/crm/private/json/Contacts/insertRecords
-    body: xmlData=%3CContacts%3E%0A%20%20%3Crow%20no%3D%221%22%3E%0A%20%20%20%20%3CFL%20val%3D%22First%20Name%22%3EJohnny%3C%2FFL%3E%0A%20%20%20%20%3CFL%20val%3D%22Last%20Name%22%3EDepp%3C%2FFL%3E%0A%20%20%3C%2Frow%3E%0A%3C%2FContacts%3E%0A&newFormat=1&authtoken=b0d8b1e2dbe42ef9d60f463fc94557ff&scope=crmapi
+    body: xmlData=%3CContacts%3E%0A%20%20%3Crow%20no%3D%221%22%3E%0A%20%20%20%20%3CFL%20val%3D%22First%20Name%22%3EJohnny%3C%2FFL%3E%0A%20%20%20%20%3CFL%20val%3D%22Last%20Name%22%3EDepp%3C%2FFL%3E%0A%20%20%3C%2Frow%3E%0A%3C%2FContacts%3E%0A&newFormat=1&authtoken=<TOKEN>&scope=crmapi
     headers: 
-  response: !ruby/struct:VCR::Response 
-    status: !ruby/struct:VCR::ResponseStatus 
+  response: !ruby/struct:VCR::Response
+    status: !ruby/struct:VCR::ResponseStatus
       code: 200
       message: OK
-    headers: 
-      strict-transport-security: 
+    headers:
+      strict-transport-security:
       - max-age=432000
-      set-cookie: 
-      - crmcsr=3be7b991-7448-4cdf-80e4-9b98f470c97f; Path=/
-      pragma: 
+      set-cookie:
+      - crmcsr=4af3da91-0760-4367-9f5a-1ca237ec33a7; Path=/
+      - a623215f16=4; Path=/
+      pragma:
       - no-cache
-      cache-control: 
+      cache-control:
       - no-cache
-      expires: 
+      expires:
       - Thu, 01 Jan 1970 00:00:00 GMT
-      content-type: 
+      content-type:
       - text/plain;charset=utf-8
-      content-length: 
-      - "387"
-      date: 
-      - Fri, 07 Sep 2012 17:16:11 GMT
-      server: 
+      content-length:
+      - '383'
+      date:
+      - Wed, 19 Sep 2012 22:59:43 GMT
+      server:
       - ZGS
-    body: |
-      {"response":{"result":{"message":"Record(s) added successfully","recorddetail":{"FL":[{"content":"384023000000077001","val":"Id"},{"content":"2012-09-07 17:16:12","val":"Created Time"},{"content":"2012-09-07 17:16:12","val":"Modified Time"},{"content":"kentonwhite","val":"Created By"},{"content":"kentonwhite","val":"Modified By"}]}},"uri":"/crm/private/json/Contacts/insertRecords"}}
-
-    http_version: "1.1"
+      p3p:
+      - CP="CAO PSA OUR"
+    body: ! "{\"response\":{\"result\":{\"message\":\"Record(s) added successfully\",\"recorddetail\":{\"FL\":[{\"content\":\"588305000000570009\",\"val\":\"Id\"},{\"content\":\"2012-09-19
+      15:59:44\",\"val\":\"Created Time\"},{\"content\":\"2012-09-19 15:59:44\",\"val\":\"Modified
+      Time\"},{\"content\":\"Rosenthal\",\"val\":\"Created By\"},{\"content\":\"Rosenthal\",\"val\":\"Modified
+      By\"}]}},\"uri\":\"/crm/private/json/Contacts/insertRecords\"}}\r\n"
+    http_version: '1.1'

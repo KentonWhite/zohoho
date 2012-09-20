@@ -10,6 +10,6 @@ describe "Zohoho::Authentication" do
     token = VCR.use_cassette('call', :record => :new_episodes) do
       Zohoho::Authentication.generate_token('ZohoCRM/crmapi', 'user', 'password')
     end
-    token.should == 'e0c8f7c27d16587ff6d166419a529b4e'
+    token.should == 'af86cc982883822471f67de3f71956e6'
   end
 end

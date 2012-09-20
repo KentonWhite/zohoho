@@ -1,0 +1,79 @@
+---
+- !ruby/struct:VCR::HTTPInteraction
+  request: !ruby/struct:VCR::Request
+    method: :get
+    uri: https://crm.zoho.com:443/crm/private/json/Leads/getSearchRecords?searchCondition=(Email%7C%3D%7Cwilly%40example.com)&selectColumns=All&authtoken=<TOKEN>&scope=crmapi
+    body: 
+    headers: 
+  response: !ruby/struct:VCR::Response
+    status: !ruby/struct:VCR::ResponseStatus
+      code: 200
+      message: OK
+    headers:
+      strict-transport-security:
+      - max-age=432000
+      set-cookie:
+      - crmcsr=f6ca57ce-7181-4c98-8c64-e74463d42276; Path=/
+      - a623215f16=0; Path=/
+      pragma:
+      - no-cache
+      cache-control:
+      - no-cache
+      expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      content-type:
+      - text/plain;charset=utf-8
+      content-length:
+      - '1030'
+      date:
+      - Thu, 20 Sep 2012 00:10:09 GMT
+      server:
+      - ZGS
+      p3p:
+      - CP="CAO PSA OUR"
+    body: ! "{\"response\":{\"result\":{\"Leads\":{\"row\":{\"no\":\"1\",\"FL\":[{\"content\":\"588305000000571003\",\"val\":\"LEADID\"},{\"content\":\"588305000000453003\",\"val\":\"SMOWNERID\"},{\"content\":\"Stan
+      Rosenthal\",\"val\":\"Lead Owner\"},{\"content\":\"Willy\",\"val\":\"First Name\"},{\"content\":\"Watcher\",\"val\":\"Last
+      Name\"},{\"content\":\"willy@example.com\",\"val\":\"Email\"},{\"content\":\"app\",\"val\":\"Lead
+      Source\"},{\"content\":\"0\",\"val\":\"No of Employees\"},{\"content\":\"588305000000559509\",\"val\":\"CAMPAIGNID\"},{\"content\":\"588305000000559509\",\"val\":\"Campaign
+      Source\"},{\"content\":\"588305000000453003\",\"val\":\"SMCREATORID\"},{\"content\":\"Stan
+      Rosenthal\",\"val\":\"Created By\"},{\"content\":\"588305000000453003\",\"val\":\"MODIFIEDBY\"},{\"content\":\"Stan
+      Rosenthal\",\"val\":\"Modified By\"},{\"content\":\"2012-09-18 10:41:10\",\"val\":\"Created
+      Time\"},{\"content\":\"2012-09-18 10:42:41\",\"val\":\"Modified Time\"},{\"content\":\"false\",\"val\":\"Email
+      Opt Out\"},{\"content\":\"2012-09-18 10:42:41\",\"val\":\"Last Activity Time\"},{\"content\":\"None\",\"val\":\"API
+      Status\"}]}}},\"uri\":\"/crm/private/json/Leads/getSearchRecords\"}}\r\n"
+    http_version: '1.1'
+- !ruby/struct:VCR::HTTPInteraction
+  request: !ruby/struct:VCR::Request
+    method: :post
+    uri: https://crm.zoho.com:443/crm/private/json/Leads/deleteRecords?id=588305000000571003
+    body: xmlData=%3CLeads%3E%0A%20%20%3Crow%20no%3D%221%22%3E%0A%20%20%20%20%3CFL%20val%3D%22id%22%3E588305000000571003%3C%2FFL%3E%0A%20%20%3C%2Frow%3E%0A%3C%2FLeads%3E%0A&newFormat=1&authtoken=<TOKEN>&scope=crmapi
+    headers: 
+  response: !ruby/struct:VCR::Response
+    status: !ruby/struct:VCR::ResponseStatus
+      code: 200
+      message: OK
+    headers:
+      strict-transport-security:
+      - max-age=432000
+      set-cookie:
+      - crmcsr=b4e6c672-6518-4516-8ca8-15220753d852; Path=/
+      - a623215f16=6; Path=/
+      pragma:
+      - no-cache
+      cache-control:
+      - no-cache
+      expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      content-type:
+      - text/plain;charset=utf-8
+      content-length:
+      - '164'
+      date:
+      - Thu, 20 Sep 2012 00:48:45 GMT
+      server:
+      - ZGS
+      p3p:
+      - CP="CAO PSA OUR"
+    body: ! "{\"response\":{\"result\":{\"message\":\"Record Id(s) : 588305000000571003,Record(s)
+      deleted successfully\",\"code\":\"5000\"},\"uri\":\"/crm/private/json/Leads/deleteRecords\"}}\r\n"
+    http_version: '1.1'

@@ -48,3 +48,4 @@ pkg
 
 # For RVM
 .rvmrc
+.env

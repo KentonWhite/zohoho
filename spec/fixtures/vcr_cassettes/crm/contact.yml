@@ -1,34 +1,41 @@
---- 
-- !ruby/struct:VCR::HTTPInteraction 
-  request: !ruby/struct:VCR::Request 
+---
+- !ruby/struct:VCR::HTTPInteraction
+  request: !ruby/struct:VCR::Request
     method: :get
-    uri: https://crm.zoho.com:443/crm/private/json/Contacts/getSearchRecords?searchCondition=(Contact%20Name%7Cends%20with%7CWhite)&selectColumns=All&authtoken=b0d8b1e2dbe42ef9d60f463fc94557ff&scope=crmapi
+    uri: https://crm.zoho.com:443/crm/private/json/Contacts/getSearchRecords?searchCondition=(Contact%20Name%7Cends%20with%7CWhite)&selectColumns=All&authtoken=<TOKEN>&scope=crmapi
     body: 
     headers: 
-  response: !ruby/struct:VCR::Response 
-    status: !ruby/struct:VCR::ResponseStatus 
+  response: !ruby/struct:VCR::Response
+    status: !ruby/struct:VCR::ResponseStatus
       code: 200
       message: OK
-    headers: 
-      strict-transport-security: 
+    headers:
+      strict-transport-security:
       - max-age=432000
-      set-cookie: 
-      - crmcsr=413aef81-50d3-4257-8676-3db4778c367c; Path=/
-      pragma: 
+      set-cookie:
+      - crmcsr=b8688a7f-e62b-4535-9f04-32ecdceb8688; Path=/
+      - a623215f16=12; Path=/
+      pragma:
       - no-cache
-      cache-control: 
+      cache-control:
       - no-cache
-      expires: 
+      expires:
       - Thu, 01 Jan 1970 00:00:00 GMT
-      content-type: 
+      content-type:
       - text/plain;charset=utf-8
-      content-length: 
-      - "1539"
-      date: 
-      - Fri, 07 Sep 2012 17:16:09 GMT
-      server: 
+      content-length:
+      - '681'
+      date:
+      - Wed, 19 Sep 2012 22:59:43 GMT
+      server:
       - ZGS
-    body: |
-      {"response":{"result":{"Contacts":{"row":[{"no":"1","FL":[{"content":"384023000000045001","val":"CONTACTID"},{"content":"384023000000042003","val":"SMOWNERID"},{"content":"kentonwhite","val":"Contact Owner"},{"content":"Kenton","val":"First Name"},{"content":"White","val":"Last Name"},{"content":"384023000000042003","val":"SMCREATORID"},{"content":"kentonwhite","val":"Created By"},{"content":"384023000000042003","val":"MODIFIEDBY"},{"content":"kentonwhite","val":"Modified By"},{"content":"2011-05-10 20:22:25","val":"Created Time"},{"content":"2011-05-10 20:22:25","val":"Modified Time"},{"content":"false","val":"Email Opt Out"},{"content":"Dr.","val":"Salutation"},{"content":"false","val":"Add to QuickBooks"},{"content":"2011-05-10 20:22:25","val":"Last Activity Time"}]},{"no":"2","FL":[{"content":"384023000000047003","val":"CONTACTID"},{"content":"384023000000042003","val":"SMOWNERID"},{"content":"kentonwhite","val":"Contact Owner"},{"content":"John","val":"First Name"},{"content":"White","val":"Last Name"},{"content":"384023000000042003","val":"SMCREATORID"},{"content":"kentonwhite","val":"Created By"},{"content":"384023000000042003","val":"MODIFIEDBY"},{"content":"kentonwhite","val":"Modified By"},{"content":"2011-05-11 13:48:39","val":"Created Time"},{"content":"2011-05-11 13:48:39","val":"Modified Time"},{"content":"false","val":"Email Opt Out"},{"content":"false","val":"Add to QuickBooks"},{"content":"2011-05-11 13:48:39","val":"Last Activity Time"}]}]}},"uri":"/crm/private/json/Contacts/getSearchRecords"}}
-
-    http_version: "1.1"
+      p3p:
+      - CP="CAO PSA OUR"
+    body: ! "{\"response\":{\"result\":{\"Contacts\":{\"row\":{\"no\":\"1\",\"FL\":[{\"content\":\"588305000000567027\",\"val\":\"CONTACTID\"},{\"content\":\"588305000000453003\",\"val\":\"SMOWNERID\"},{\"content\":\"Stan
+      Rosenthal\",\"val\":\"Contact Owner\"},{\"content\":\"White\",\"val\":\"Last
+      Name\"},{\"content\":\"588305000000453003\",\"val\":\"SMCREATORID\"},{\"content\":\"Stan
+      Rosenthal\",\"val\":\"Created By\"},{\"content\":\"588305000000453003\",\"val\":\"MODIFIEDBY\"},{\"content\":\"Stan
+      Rosenthal\",\"val\":\"Modified By\"},{\"content\":\"2012-09-19 15:14:27\",\"val\":\"Created
+      Time\"},{\"content\":\"2012-09-19 15:28:28\",\"val\":\"Modified Time\"},{\"content\":\"2012-09-19
+      15:28:28\",\"val\":\"Last Activity Time\"}]}}},\"uri\":\"/crm/private/json/Contacts/getSearchRecords\"}}\r\n"
+    http_version: '1.1'

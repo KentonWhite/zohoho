@@ -1,37 +1,65 @@
---- 
-- !ruby/struct:VCR::HTTPInteraction 
-  request: !ruby/struct:VCR::Request 
+---
+- !ruby/struct:VCR::HTTPInteraction
+  request: !ruby/struct:VCR::Request
     method: :post
     uri: https://crm.zoho.com:443/crm/private/json/Notes/insertRecords
-    body: xmlData=%3CNotes%3E%0A%20%20%3Crow%20no%3D%221%22%3E%0A%20%20%20%20%3CFL%20val%3D%22entityId%22%3E384023000000055001%3C%2FFL%3E%0A%20%20%20%20%3CFL%20val%3D%22Note%20Title%22%3ENote%20to%20self%3C%2FFL%3E%0A%20%20%20%20%3CFL%20val%3D%22Note%20Content%22%3EDon%26apos%3Bt%20do%20that%20again%3C%2FFL%3E%0A%20%20%3C%2Frow%3E%0A%3C%2FNotes%3E%0A&newFormat=1&authtoken=b0d8b1e2dbe42ef9d60f463fc94557ff&scope=crmapi
+    body: xmlData=%3CNotes%3E%0A%20%20%3Crow%20no%3D%221%22%3E%0A%20%20%20%20%3CFL%20val%3D%22entityId%22%3E384023000000055001%3C%2FFL%3E%0A%20%20%20%20%3CFL%20val%3D%22Note%20Title%22%3ENote%20to%20self%3C%2FFL%3E%0A%20%20%20%20%3CFL%20val%3D%22Note%20Content%22%3EDon%26apos%3Bt%20do%20that%20again%3C%2FFL%3E%0A%20%20%3C%2Frow%3E%0A%3C%2FNotes%3E%0A&newFormat=1&authtoken=<TOKEN>&scope=crmapi
     headers: 
-  response: !ruby/struct:VCR::Response 
-    status: !ruby/struct:VCR::ResponseStatus 
+  response: !ruby/struct:VCR::Response
+    status: !ruby/struct:VCR::ResponseStatus
       code: 200
       message: OK
-    headers: 
-      strict-transport-security: 
+    headers:
+      strict-transport-security:
       - max-age=432000
-      set-cookie: 
+      set-cookie:
       - crmcsr=96d45018-feed-4ed4-9fce-c606b8625b60; Path=/
       - a623215f16=7; Path=/
-      pragma: 
+      pragma:
       - no-cache
-      cache-control: 
+      cache-control:
       - no-cache
-      expires: 
+      expires:
       - Thu, 01 Jan 1970 00:00:00 GMT
-      content-type: 
+      content-type:
       - text/plain;charset=utf-8
-      content-length: 
-      - "384"
-      date: 
+      content-length:
+      - '384'
+      date:
       - Fri, 07 Sep 2012 17:16:13 GMT
-      server: 
+      server:
       - ZGS
-      p3p: 
+      p3p:
       - CP="CAO PSA OUR"
-    body: |
-      {"response":{"result":{"message":"Record(s) added successfully","recorddetail":{"FL":[{"content":"384023000000078001","val":"Id"},{"content":"2012-09-07 17:16:13","val":"Created Time"},{"content":"2012-09-07 17:16:13","val":"Modified Time"},{"content":"kentonwhite","val":"Created By"},{"content":"kentonwhite","val":"Modified By"}]}},"uri":"/crm/private/json/Notes/insertRecords"}}
+    body: ! '{"response":{"result":{"message":"Record(s) added successfully","recorddetail":{"FL":[{"content":"384023000000078001","val":"Id"},{"content":"2012-09-07
+      17:16:13","val":"Created Time"},{"content":"2012-09-07 17:16:13","val":"Modified
+      Time"},{"content":"kentonwhite","val":"Created By"},{"content":"kentonwhite","val":"Modified
+      By"}]}},"uri":"/crm/private/json/Notes/insertRecords"}}
 
-    http_version: "1.1"
+'
+    http_version: '1.1'
+- !ruby/struct:VCR::HTTPInteraction
+  request: !ruby/struct:VCR::Request
+    method: :post
+    uri: https://crm.zoho.com:443/crm/private/json/Notes/insertRecords?xmlData=%3CNotes%3E%0A++%3Crow+no%3D%221%22%3E%0A++++%3CFL+val%3D%22entityId%22%3E384023000000055001%3C%2FFL%3E%0A++++%3CFL+val%3D%22Note+Title%22%3ENote+to+self%3C%2FFL%3E%0A++++%3CFL+val%3D%22Note+Content%22%3EDon%26apos%3Bt+do+that+again%3C%2FFL%3E%0A++%3C%2Frow%3E%0A%3C%2FNotes%3E%0A&newFormat=1&authtoken=<TOKEN>&scope=crmapi
+    body: 
+    headers: 
+  response: !ruby/struct:VCR::Response
+    status: !ruby/struct:VCR::ResponseStatus
+      code: 411
+      message: Length Required
+    headers:
+      content-type:
+      - text/html
+      content-length:
+      - '357'
+      date:
+      - Wed, 19 Sep 2012 22:07:49 GMT
+      server:
+      - ZGS
+    body: ! "<?xml version=\"1.0\" encoding=\"iso-8859-1\"?>\n<!DOCTYPE html PUBLIC
+      \"-//W3C//DTD XHTML 1.0 Transitional//EN\"\n         \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\">\n<html
+      xmlns=\"http://www.w3.org/1999/xhtml\" xml:lang=\"en\" lang=\"en\">\n <head>\n
+      \ <title>411 - Length Required</title>\n </head>\n <body>\n  <h1>411 - Length
+      Required</h1>\n </body>\n</html>\n"
+    http_version: '1.1'

@@ -3,8 +3,7 @@ require File.expand_path(File.dirname(__FILE__) + '/spec_helper')
 describe "Zohoho::Connection" do 
   
   before :each do
-    @authtoken = 'b0d8b1e2dbe42ef9d60f463fc94557ff'
-    @conn = Zohoho::Connection.new('CRM', @authtoken) 
+    @conn = Zohoho::Connection.new('CRM', ENV['TOKEN'])
     vcr_config 'connection'    
   end
   
