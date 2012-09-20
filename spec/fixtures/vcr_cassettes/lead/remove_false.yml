@@ -1,0 +1,35 @@
+---
+- !ruby/struct:VCR::HTTPInteraction
+  request: !ruby/struct:VCR::Request
+    method: :get
+    uri: https://crm.zoho.com:443/crm/private/json/Leads/getSearchRecords?searchCondition=(Email%7C%3D%7Clilly%40example.com)&selectColumns=All&authtoken=<TOKEN>&scope=crmapi
+    body: 
+    headers: 
+  response: !ruby/struct:VCR::Response
+    status: !ruby/struct:VCR::ResponseStatus
+      code: 200
+      message: OK
+    headers:
+      strict-transport-security:
+      - max-age=432000
+      set-cookie:
+      - crmcsr=1a7b9068-7420-4674-b8e7-5883e4ff90d0; Path=/
+      - a623215f16=12; Path=/
+      pragma:
+      - no-cache
+      cache-control:
+      - no-cache
+      expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      content-type:
+      - text/plain;charset=utf-8
+      content-length:
+      - '127'
+      date:
+      - Thu, 20 Sep 2012 00:51:59 GMT
+      server:
+      - ZGS
+      p3p:
+      - CP="CAO PSA OUR"
+    body: ! "{\"response\":{\"nodata\":{\"message\":\"There is no data to show\",\"code\":\"4422\"},\"uri\":\"/crm/private/json/Leads/getSearchRecords\"}}\r\n"
+    http_version: '1.1'

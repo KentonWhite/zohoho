@@ -1,0 +1,35 @@
+---
+- !ruby/struct:VCR::HTTPInteraction
+  request: !ruby/struct:VCR::Request
+    method: :post
+    uri: https://crm.zoho.com:443/crm/private/json/Leads/insertRecords
+    body: xmlData=%3CLeads%3E%0A%20%20%3Crow%20no%3D%221%22%3E%0A%20%20%20%20%3CFL%20val%3D%22Company%22%3E%20%3C%2FFL%3E%0A%20%20%20%20%3CFL%20val%3D%22Last%20Name%22%3E%20%3C%2FFL%3E%0A%20%20%20%20%3CFL%20val%3D%22Email%22%3Ebilly%40example.com%3C%2FFL%3E%0A%20%20%3C%2Frow%3E%0A%3C%2FLeads%3E%0A&newFormat=1&authtoken=<TOKEN>&scope=crmapi
+    headers: 
+  response: !ruby/struct:VCR::Response
+    status: !ruby/struct:VCR::ResponseStatus
+      code: 200
+      message: OK
+    headers:
+      strict-transport-security:
+      - max-age=432000
+      set-cookie:
+      - crmcsr=33d4f771-65e9-4a2f-8197-19fcc615d83b; Path=/
+      pragma:
+      - no-cache
+      cache-control:
+      - no-cache
+      expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      content-type:
+      - text/plain;charset=utf-8
+      content-length:
+      - '380'
+      date:
+      - Thu, 20 Sep 2012 00:38:48 GMT
+      server:
+      - ZGS
+    body: ! "{\"response\":{\"result\":{\"message\":\"Record(s) added successfully\",\"recorddetail\":{\"FL\":[{\"content\":\"588305000000570015\",\"val\":\"Id\"},{\"content\":\"2012-09-19
+      17:38:49\",\"val\":\"Created Time\"},{\"content\":\"2012-09-19 17:38:49\",\"val\":\"Modified
+      Time\"},{\"content\":\"Rosenthal\",\"val\":\"Created By\"},{\"content\":\"Rosenthal\",\"val\":\"Modified
+      By\"}]}},\"uri\":\"/crm/private/json/Leads/insertRecords\"}}\r\n"
+    http_version: '1.1'
