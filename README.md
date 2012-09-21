@@ -1,4 +1,5 @@
-# Zohoho
+
+# Zohoho [![Build Status](https://secure.travis-ci.org/KentonWhite/zohoho.png)](http://travis-ci.org/KentonWhite/zohoho)
 
 ## Usage
 
