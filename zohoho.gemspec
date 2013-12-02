@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = "zohoho"
-  s.version = "0.2.1"
+  s.version = "0.2.2"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["KentonWhite"]
-  s.date = "2012-09-20"
+  s.date = "2013-12-02"
   s.description = "Simple interface to zoho api"
   s.email = "jkentonwhite@gmail.com"
   s.extra_rdoc_files = [
@@ -19,6 +19,7 @@ Gem::Specification.new do |s|
   s.files = [
     ".autotest",
     ".document",
+    ".travis.yml",
     "Gemfile",
     "Gemfile.lock",
     "LICENSE.txt",
@@ -55,10 +56,8 @@ Gem::Specification.new do |s|
 
     if Gem::Version.new(Gem::VERSION) >= Gem::Version.new('1.2.0') then
       s.add_runtime_dependency(%q<httparty>, ["~> 0.8.0"])
-      s.add_runtime_dependency(%q<json>, ["~> 1.6.1"])
       s.add_runtime_dependency(%q<xml-simple>, ["~> 1.1.0"])
       s.add_development_dependency(%q<rspec>, [">= 0"])
-      s.add_development_dependency(%q<bundler>, ["~> 1.0.0"])
       s.add_development_dependency(%q<jeweler>, ["~> 1.6.0"])
       s.add_development_dependency(%q<rcov>, [">= 0"])
       s.add_development_dependency(%q<fakeweb>, ["~> 1.3.0"])
@@ -66,10 +65,8 @@ Gem::Specification.new do |s|
       s.add_development_dependency(%q<mocha>, ["~> 0.10.5"])
     else
       s.add_dependency(%q<httparty>, ["~> 0.8.0"])
-      s.add_dependency(%q<json>, ["~> 1.6.1"])
       s.add_dependency(%q<xml-simple>, ["~> 1.1.0"])
       s.add_dependency(%q<rspec>, [">= 0"])
-      s.add_dependency(%q<bundler>, ["~> 1.0.0"])
       s.add_dependency(%q<jeweler>, ["~> 1.6.0"])
       s.add_dependency(%q<rcov>, [">= 0"])
       s.add_dependency(%q<fakeweb>, ["~> 1.3.0"])
@@ -78,10 +75,8 @@ Gem::Specification.new do |s|
     end
   else
     s.add_dependency(%q<httparty>, ["~> 0.8.0"])
-    s.add_dependency(%q<json>, ["~> 1.6.1"])
     s.add_dependency(%q<xml-simple>, ["~> 1.1.0"])
     s.add_dependency(%q<rspec>, [">= 0"])
-    s.add_dependency(%q<bundler>, ["~> 1.0.0"])
     s.add_dependency(%q<jeweler>, ["~> 1.6.0"])
     s.add_dependency(%q<rcov>, [">= 0"])
     s.add_dependency(%q<fakeweb>, ["~> 1.3.0"])
